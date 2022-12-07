@@ -1,0 +1,71 @@
+@startuml
+!pragma layout smetana
+'https://plantuml.com/class-diagram
+class Main {
+}
+
+class Application {
+}
+
+class FileIO {
+}
+
+class TextUI {
+}
+
+interface Menu {
+}
+
+class StartMenu extends Menu{
+}
+
+class MainMenu extends Menu {
+}
+
+class TransactionMenu extends Menu {
+}
+
+class TransactionManager {
+}
+
+class GameManager {
+}
+
+class SimulationManager {
+}
+
+class User {
+}
+
+class Portfolio {
+}
+
+interface Equity {
+}
+
+abstract class Stock extends Equity {
+}
+
+class PennyStock extends Stock {
+}
+class SmallCapStock extends Stock {
+}
+class MediumCapStock extends Stock {
+}
+class LargeCapStock extends Stock {
+}
+
+Main *-- Application
+Application *-- Menu
+Application *-- User
+Application *-- SimulationManager
+Application *-- GameManager
+Application *-- TextUI
+Application *-- FileIO
+
+MainMenu *-- TransactionMenu
+TransactionMenu *-- TransactionManager
+
+User *-- Portfolio
+Portfolio *-- Equity
+@enduml

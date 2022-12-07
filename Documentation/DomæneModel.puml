@@ -1,0 +1,49 @@
+@startuml
+!pragma layout smetana
+'https://plantuml.com/component-diagram
+object Main
+object Application
+
+
+object GameManager
+object SimulationManager
+object FileIO
+object TextUI
+
+object StartMenu
+object MainMenu
+object TransactionMenu
+object TransactionManager
+
+object User
+object Portfolio
+object Equity
+
+object Stock
+object PennyStock
+object LargeCapStock
+object MediumCapStock
+object SmallCapStock
+
+Main *-- Application
+
+Application *-- StartMenu
+Application *-- MainMenu
+Application *-- User
+Application *-- SimulationManager
+Application *-- GameManager
+Application *-- TextUI
+Application *-- FileIO
+
+MainMenu *-- TransactionMenu
+TransactionMenu *-- TransactionManager
+
+User *-- Portfolio
+Portfolio *-- Equity : 1..many
+Equity <|-- Stock
+
+Stock <|-- LargeCapStock
+Stock <|-- MediumCapStock
+Stock <|-- SmallCapStock
+Stock <|-- PennyStock
+@enduml
