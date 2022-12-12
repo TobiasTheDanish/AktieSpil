@@ -1,5 +1,5 @@
 public class TransactionManager {
-    public void Transaction(Equity equity, User user) {
-        
+    public void Transaction(IEquity equity, User user) {
+
     }
 }
