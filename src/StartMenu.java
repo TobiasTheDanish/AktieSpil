@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class StartMenu implements IMenu{
 
 
@@ -20,6 +22,7 @@ public class StartMenu implements IMenu{
 
         //shortcut
         TextUI textUI = application.ui.asTextUI();
+        FileIO fileIO = application.dataIO.asFileIO();
 
         do {
             currentUsername = textUI.getInputOnLine("Enter username: ");
@@ -30,15 +33,15 @@ public class StartMenu implements IMenu{
         currentUsername = currentUsername.trim();
 
         //If the username already existing. Prompt for a password to log in to existing account
-        if (checkExistingUsername(currentUsername)) {
+        if (checkExistingUsername(currentUsername, fileIO)) {
             String input;
             currentPassword = textUI.getInputOnLine("Enter password: ");
-            if (checkCorrectPassword(currentPassword)) {
+            if (checkCorrectPassword(currentPassword, fileIO)) {
                 //If the password matches the existing username, then you will be logged in.
                 textUI.displayMessage("You have successfully logged in.");
                 return new User(currentUsername, currentPassword);
             } else {
-                while (!checkCorrectPassword(currentPassword)) {
+                while (!checkCorrectPassword(currentPassword, fileIO)) {
                     do {
                         textUI.displayMessage("|-- Incorrect Password --|");
                         input = textUI.getInput("Try again(T) or go back(B)");
@@ -52,7 +55,7 @@ public class StartMenu implements IMenu{
                             currentPassword = textUI.getInputOnLine("Enter password: ");
 
                             //If password is correct, return the user.
-                            if (checkCorrectPassword(currentPassword)) {
+                            if (checkCorrectPassword(currentPassword, fileIO)) {
                                 return new User(currentUsername, currentPassword);
                             }
                         }
@@ -62,7 +65,7 @@ public class StartMenu implements IMenu{
                 }
 
             }
-        } else if (!checkExistingUsername(currentUsername)) {
+        } else if (!checkExistingUsername(currentUsername, fileIO)) {
             String input;
             textUI.displayMessage("We don't have any existing users by the name of " + currentUsername + ".");
             textUI.displayMessage("What would you like to do?");
@@ -80,7 +83,7 @@ public class StartMenu implements IMenu{
                     textUI.displayMessage("You have successfully been logged in.");
                     User user = new User(currentUsername, currentPassword);
 
-                    //ToDO add this new user to Userdata.csv
+                    fileIO.writeNewUserData("src/Data/Userdata.csv",user);
 
                     return user;
                 }
@@ -92,12 +95,30 @@ public class StartMenu implements IMenu{
             return new User("-1", "-1");
     }
 
-    boolean checkExistingUsername(String username){
-        //check csv file for existing username
+    boolean checkExistingUsername(String username, FileIO fileIO){
+        ArrayList<String> data = fileIO.readData("src/Data/Userdata.csv");
+
+        //Loops through the whole list of userdata
+        for (int i = 0; i < data.size(); i++){
+            //Returns true if any of the usernames matches the given username.
+            if(data.get(i).split(";")[0].equalsIgnoreCase(username)){
+             return true;
+            }
+        }
+        //If the method didn't find a match, it will return false.
         return false;
     }
-    boolean checkCorrectPassword(String password){
-        //check csv file for existing password
+    boolean checkCorrectPassword(String password, FileIO fileIO){
+       ArrayList<String> data = fileIO.readData("src/Data/Userdata.csv");
+
+        //Loops through the whole list of userdata
+        for (int i = 0; i < data.size(); i++){
+            //Returns true if any of the passwords matches the given password.
+            if (data.get(i).split(";")[1].equals(password)){
+                return true;
+            }
+        }
+        //If the method didn't find a match, it will return false.
         return false;
     }
 
