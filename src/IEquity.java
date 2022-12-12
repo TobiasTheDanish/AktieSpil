@@ -2,8 +2,8 @@ public interface IEquity {
 
     String getName();
 
-    int getPrice();
+    float getPrice();
 
-    void setPrice();
+    void setPrice(float price);
 
 }

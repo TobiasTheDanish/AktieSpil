@@ -108,7 +108,7 @@ class Portfolio {
 interface IEquity {
     + String getName()
     + float getPrice()
-    + void setPrice()
+    + void setPrice(float price)
 }
 
 abstract class AStock implements IEquity {
@@ -116,33 +116,33 @@ abstract class AStock implements IEquity {
     - float riskOfBankruptcy
     - String name
     - float price
-    + Stock(String name, int price, Range range, float riskOfBankruptcy)
+    + AStock(String name, int price, Range range, float riskOfBankruptcy)
     + String toString()
 }
 
 class PennyStock extends AStock {
     + PennyStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
-    + int getPrice()
-    + void setPrice()
+    + float getPrice()
+    + void setPrice(float price)
 }
 class SmallCapStock extends AStock {
     + SmallCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
-    + int getPrice()
-    + void setPrice()
+    + float getPrice()
+    + void setPrice(float price)
 }
 class MediumCapStock extends AStock {
     + MediumCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
-    + int getPrice()
-    + void setPrice()
+    + float getPrice()
+    + void setPrice(float price)
 }
 class LargeCapStock extends AStock {
     + LargeCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
-    + int getPrice()
-    + void setPrice()
+    + float getPrice()
+    + void setPrice(float price)
 }
 
 class Range {
