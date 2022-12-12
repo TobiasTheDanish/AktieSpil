@@ -104,8 +104,12 @@ class Portfolio {
     - Arraylist<IEquity> equities
     - Dictionary<String, int> equityAmount
     - Dictionary<String, int> purchasePrices
-    + Portfolio(Arraylist<Equity> equities)
+    - float balance
+    + Portfolio(Arraylist<Equity> equities, float balance)
     + float calculateTotalValue()
+    + float getBalance()
+    + void setBalance()
+
 }
 
 interface IEquity {
