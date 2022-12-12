@@ -15,6 +15,10 @@ public class TextUI implements IUI {
         displayMessage(msg);
         return scanner.next();
     }
+    public String getInputOnLine(String msg){
+        displayMessageOnLine(msg);
+        return scanner.next();
+    }
 
     public void printPortfolio(ArrayList<IEquity> equities){
         //print portfolio
