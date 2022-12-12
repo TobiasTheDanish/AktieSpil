@@ -97,13 +97,13 @@ class Portfolio {
     + int calculateTotalValue()
 }
 
-interface Equity {
+interface IEquity {
     + String getName()
     + int getPrice()
     + void setPrice()
 }
 
-abstract class Stock implements Equity {
+abstract class AStock implements IEquity {
     - Range range
     - float riskOfBankruptcy
     - String name
@@ -112,25 +112,25 @@ abstract class Stock implements Equity {
     + String toString()
 }
 
-class PennyStock extends Stock {
+class PennyStock extends AStock {
     + PennyStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + int getPrice()
     + void setPrice()
 }
-class SmallCapStock extends Stock {
+class SmallCapStock extends AStock {
     + SmallCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + int getPrice()
     + void setPrice()
 }
-class MediumCapStock extends Stock {
+class MediumCapStock extends AStock {
     + MediumCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + int getPrice()
     + void setPrice()
 }
-class LargeCapStock extends Stock {
+class LargeCapStock extends AStock {
     + LargeCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + int getPrice()
@@ -154,7 +154,7 @@ Application *-- IDataIO
 TransactionMenu *-- TransactionManager
 
 User *-- Portfolio
-Portfolio *-- Equity
+Portfolio *-- IEquity
 PennyStock *-- Range
 SmallCapStock *-- Range
 MediumCapStock *-- Range
