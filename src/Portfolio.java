@@ -8,9 +8,11 @@ public class Portfolio {
     Dictionary<String, Integer> equityAmount;
 
     Dictionary<String, Integer> purchasePrices;
+    private float balance;
 
-    public Portfolio(ArrayList<IEquity> equities) {
+    public Portfolio(ArrayList<IEquity> equities, float balance) {
         this.equities = equities;
+        this.balance = balance;
     }
 
     public float calculateTotalValue(){
@@ -19,5 +21,13 @@ public class Portfolio {
             sum += iEquity.getPrice();
         }
         return sum;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
     }
 }
