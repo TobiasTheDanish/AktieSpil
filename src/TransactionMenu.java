@@ -14,11 +14,11 @@ String nameOfFunction;
     public void enter(Application application){
         TextUI textUI = application.ui.asTextUI();
         switch (nameOfFunction) {
-            case "1": {
+            case "makeTransaction": {
                 makeTransaction();
                 break;
             }
-            case "2": {
+            case "displayPrevTransactions": {
                 displayPrevTransactions();
                 break;
             }
