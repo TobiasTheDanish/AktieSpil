@@ -16,7 +16,14 @@ public class StartMenu implements IMenu{
     }
 
     @Override
-    public void exit() {
+    public void enter(Application application)
+    {
+
+    }
+
+    @Override
+    public void exit(Application application)
+    {
 
     }
 }

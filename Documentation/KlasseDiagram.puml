@@ -6,8 +6,7 @@ class Main {
 }
 
 class Application {
-    - Stack<Menu> menuStack
-    + void setup()
+    - Stack<IMenu> menuStack
     + void run()
 }
 
@@ -38,12 +37,12 @@ class TextUI implements IUI {
     + void clearConsole()
 }
 
-interface Menu {
-    + void enter()
-    + void exit()
+interface IMenu {
+    + void enter(Application application)
+    + void exit(Application application)
 }
 
-class StartMenu implements Menu {
+class StartMenu implements IMenu {
     - User currentUser
     - String currentUsername
     - String currentPassword
@@ -54,12 +53,12 @@ class StartMenu implements Menu {
     - boolean checkExistingPassword(String password)
 }
 
-class MainMenu implements Menu {
+class MainMenu implements IMenu {
     + void enter()
     + void exit()
 }
 
-class TransactionMenu implements Menu {
+class TransactionMenu implements IMenu {
     + void enter()
     + void exit()
 }
@@ -90,47 +89,47 @@ class User {
 }
 
 class Portfolio {
-    - Arraylist<Equity> equities
+    - Arraylist<IEquity> equities
     - Dictionary<String, int> equityAmount
     - Dictionary<String, int> purchasePrices
     + Portfolio(Arraylist<Equity> equities)
-    + int calculateTotalValue()
+    + float calculateTotalValue()
 }
 
-interface Equity {
+interface IEquity {
     + String getName()
-    + int getPrice()
+    + float getPrice()
     + void setPrice()
 }
 
-abstract class Stock implements Equity {
+abstract class AStock implements IEquity {
     - Range range
     - float riskOfBankruptcy
     - String name
-    - int price
+    - float price
     + Stock(String name, int price, Range range, float riskOfBankruptcy)
     + String toString()
 }
 
-class PennyStock extends Stock {
+class PennyStock extends AStock {
     + PennyStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + int getPrice()
     + void setPrice()
 }
-class SmallCapStock extends Stock {
+class SmallCapStock extends AStock {
     + SmallCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + int getPrice()
     + void setPrice()
 }
-class MediumCapStock extends Stock {
+class MediumCapStock extends AStock {
     + MediumCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + int getPrice()
     + void setPrice()
 }
-class LargeCapStock extends Stock {
+class LargeCapStock extends AStock {
     + LargeCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + int getPrice()
@@ -144,7 +143,7 @@ class Range {
 }
 
 Main *-- Application
-Application *-- Menu
+Application *-- IMenu
 Application *-- User
 Application *-- SimulationManager
 Application *-- GameManager
@@ -154,7 +153,7 @@ Application *-- IDataIO
 TransactionMenu *-- TransactionManager
 
 User *-- Portfolio
-Portfolio *-- Equity
+Portfolio *-- IEquity
 PennyStock *-- Range
 SmallCapStock *-- Range
 MediumCapStock *-- Range

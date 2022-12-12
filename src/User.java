@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class User {
 
     private String username;
@@ -7,8 +9,17 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        //Portfolio??
     }
 
+    public String getUsername() {
+        return username;
+    }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public Portfolio getPortfolio() {
+        return portfolio;
+    }
 }
