@@ -13,11 +13,11 @@ public class TextUI implements IUI {
 
     public String getInput(String msg){
         displayMessage(msg);
-        return scanner.next();
+        return scanner.nextLine();
     }
     public String getInputOnLine(String msg){
         displayMessageOnLine(msg);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public void printPortfolio(ArrayList<IEquity> equities){

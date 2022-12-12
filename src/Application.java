@@ -18,6 +18,8 @@ public class Application {
         while (!menuStack.isEmpty()) {
             menuStack.peek().enter(this);
         }
+
+        ui.displayMessage("Logging out...");
     }
 
     public ArrayList<IEquity> getEquities()
