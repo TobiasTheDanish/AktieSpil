@@ -7,7 +7,6 @@ class Main {
 
 class Application {
     - Stack<IMenu> menuStack
-    + void setup()
     + void run()
 }
 
@@ -39,8 +38,8 @@ class TextUI implements IUI {
 }
 
 interface IMenu {
-    + void enter()
-    + void exit()
+    + void enter(Application application)
+    + void exit(Application application)
 }
 
 class StartMenu implements IMenu {
