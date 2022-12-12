@@ -102,15 +102,21 @@ public class FileIO implements IDataIO
     @Override
     public void writeNewUserData(String path, User user)
     {
+        //Reads all the existing data and puts it into an ArrayList<>.
+        ArrayList<String> data = readData(path);
+
         //Creates a file object at the given path
         File file = new File(path);
         try
         {
             //Accesses the file with the FileWriter class to write data to that file
             writer = new FileWriter(file);
-
-            String s = user.getUsername() + user.getPassword();
-            writer.write(s);
+            //Rewrites the header in the file
+            writer.write("username;password\n");
+                data.add(user.getUsername() + ";" + user.getPassword());
+                for (String s : data){
+                    writer.write(s + "\n");
+                }
 
             //Closes FileWriter, so it's ready to be used somewhere else
             writer.close();

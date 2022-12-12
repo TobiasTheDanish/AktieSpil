@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 
 public interface IDataIO
@@ -7,4 +8,7 @@ public interface IDataIO
     void writeNewUserData(String path, User user);
     void updateUserData(String path, User user);
     void writeGameData(String path, ArrayList<String> data);
+    default FileIO asFileIO(){
+        return (FileIO) this;
+    }
 }
