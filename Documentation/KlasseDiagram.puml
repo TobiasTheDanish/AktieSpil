@@ -90,16 +90,16 @@ class User {
 }
 
 class Portfolio {
-    - Arraylist<Equity> equities
+    - Arraylist<IEquity> equities
     - Dictionary<String, int> equityAmount
     - Dictionary<String, int> purchasePrices
     + Portfolio(Arraylist<Equity> equities)
-    + int calculateTotalValue()
+    + float calculateTotalValue()
 }
 
 interface IEquity {
     + String getName()
-    + int getPrice()
+    + float getPrice()
     + void setPrice()
 }
 
@@ -107,7 +107,7 @@ abstract class AStock implements IEquity {
     - Range range
     - float riskOfBankruptcy
     - String name
-    - int price
+    - float price
     + Stock(String name, int price, Range range, float riskOfBankruptcy)
     + String toString()
 }
