@@ -2,57 +2,145 @@
 !pragma layout smetana
 'https://plantuml.com/class-diagram
 class Main {
+    + {static} void main()
 }
 
 class Application {
+    - Stack<Menu> menuStack
+    + void setup()
+    + void run()
 }
 
-class FileIO {
+interface IDataIO {
+    + readData(String path)
+    + writeData(String path, Arraylist<String> data)
 }
 
-class TextUI {
+class FileIO implements IDataIO {
+    - Scanner scanner
+    + readData(String path)
+    + writeData(String path, Arraylist<String> data)
+
+}
+
+interface IUI {
+    + String getInput(String msg)
+    + void displayMessage(String msg)
+    + void displayMessageOnLine(String msg)
+}
+
+class TextUI implements IUI {
+    - Scanner scanner
+    + String getInput(String msg)
+    + void displayMessage(String msg)
+    + void displayMessageOnLine(String msg)
+    + void printPortfolio(Arraylist<Equity> equities)
+    + void clearConsole()
 }
 
 interface Menu {
+    + void enter()
+    + void exit()
 }
 
-class StartMenu extends Menu{
+class StartMenu implements Menu {
+    - User currentUser
+    - String currentUsername
+    - String currentPassword
+    + void enter()
+    + void exit()
+    - User logIn()
+    - boolean checkExistingUsername(String username)
+    - boolean checkExistingPassword(String password)
 }
 
-class MainMenu extends Menu {
+class MainMenu implements Menu {
+    + void enter()
+    + void exit()
 }
 
-class TransactionMenu extends Menu {
+class TransactionMenu implements Menu {
+    + void enter()
+    + void exit()
 }
 
 class TransactionManager {
+    + void makeTransaction(Equity equity, User user)
 }
 
 class GameManager {
+    + void chooseWinLoseCondition()
+    + void chooseGameLength()
+    + boolean hasPlayerWon()
+    + boolean hasPlayerLost()
 }
 
 class SimulationManager {
+    + void simulateDay()
 }
 
 class User {
+    - String username
+    - String password
+    - Portfolio portfolio
+    + User(String username, String password)
+    + String getUsername()
+    + String getPassword()
+    + Portfolio getPortfolio()
 }
 
 class Portfolio {
+    - Arraylist<Equity> equities
+    - Dictionary<String, int> equityAmount
+    - Dictionary<String, int> purchasePrices
+    + Portfolio(Arraylist<Equity> equities)
+    + int calculateTotalValue()
 }
 
 interface Equity {
+    + String getName()
+    + int getPrice()
+    + void setPrice()
 }
 
-abstract class Stock extends Equity {
+abstract class Stock implements Equity {
+    - Range range
+    - float riskOfBankruptcy
+    - String name
+    - int price
+    + Stock(String name, int price, Range range, float riskOfBankruptcy)
+    + String toString()
 }
 
 class PennyStock extends Stock {
+    + PennyStock(String name, int price, Range range, float riskOfBankruptcy)
+    + String getName()
+    + int getPrice()
+    + void setPrice()
 }
 class SmallCapStock extends Stock {
+    + SmallCapStock(String name, int price, Range range, float riskOfBankruptcy)
+    + String getName()
+    + int getPrice()
+    + void setPrice()
 }
 class MediumCapStock extends Stock {
+    + MediumCapStock(String name, int price, Range range, float riskOfBankruptcy)
+    + String getName()
+    + int getPrice()
+    + void setPrice()
 }
 class LargeCapStock extends Stock {
+    + LargeCapStock(String name, int price, Range range, float riskOfBankruptcy)
+    + String getName()
+    + int getPrice()
+    + void setPrice()
+}
+
+class Range {
+    + final float min
+    + final float max
+    + Range(float min, float max)
 }
 
 Main *-- Application
@@ -60,12 +148,15 @@ Application *-- Menu
 Application *-- User
 Application *-- SimulationManager
 Application *-- GameManager
-Application *-- TextUI
-Application *-- FileIO
+Application *-- IUI
+Application *-- IDataIO
 
-MainMenu *-- TransactionMenu
 TransactionMenu *-- TransactionManager
 
 User *-- Portfolio
 Portfolio *-- Equity
+PennyStock *-- Range
+SmallCapStock *-- Range
+MediumCapStock *-- Range
+LargeCapStock *-- Range
 @enduml
