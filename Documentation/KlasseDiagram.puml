@@ -6,7 +6,7 @@ class Main {
 }
 
 class Application {
-    - Stack<Menu> menuStack
+    - Stack<IMenu> menuStack
     + void setup()
     + void run()
 }
@@ -38,12 +38,12 @@ class TextUI implements IUI {
     + void clearConsole()
 }
 
-interface Menu {
+interface IMenu {
     + void enter()
     + void exit()
 }
 
-class StartMenu implements Menu {
+class StartMenu implements IMenu {
     - User currentUser
     - String currentUsername
     - String currentPassword
@@ -54,12 +54,12 @@ class StartMenu implements Menu {
     - boolean checkExistingPassword(String password)
 }
 
-class MainMenu implements Menu {
+class MainMenu implements IMenu {
     + void enter()
     + void exit()
 }
 
-class TransactionMenu implements Menu {
+class TransactionMenu implements IMenu {
     + void enter()
     + void exit()
 }
@@ -144,7 +144,7 @@ class Range {
 }
 
 Main *-- Application
-Application *-- Menu
+Application *-- IMenu
 Application *-- User
 Application *-- SimulationManager
 Application *-- GameManager
