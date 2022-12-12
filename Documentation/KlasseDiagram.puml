@@ -6,19 +6,28 @@ class Main {
 }
 
 class Application {
-    - Stack<IMenu> menuStack
+    - User currentUser
+    + final Stack<IMenu> menuStack
+    + public final IUI ui
+    + public final IDataIO dataIO
     + void run()
+    + User getCurrentUser()
+    + void setCurrentUser(User currentUser)
 }
 
 interface IDataIO {
-    + readData(String path)
-    + writeData(String path, Arraylist<String> data)
+    + ArrayList<String> readData(String path)
+    + void updateUserData(String path, User user)
+    + void writeNewUserData(String path, ArrayList<User> data)
+    + void writeGameData(String path, Arraylist<String> data)
 }
 
 class FileIO implements IDataIO {
     - Scanner scanner
-    + readData(String path)
-    + writeData(String path, Arraylist<String> data)
+    + ArrayList<String> readData(String path)
+    + void updateUserData(String path, User user)
+    + void writeNewUserData(String path, ArrayList<User> data)
+    + void writeGameData(String path, Arraylist<String> data)
 
 }
 
