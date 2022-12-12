@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Documentation">
+      <change afterPath="$PROJECT_DIR$/src/DataStructures/LinkedList/ILinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataStructures/LinkedList/LinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataStructures/Stack/IStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataStructures/Stack/Stack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FileIO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IDataIO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StartMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TextUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Documentation/KlasseDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/KlasseDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransactionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransactionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransactionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +41,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="master" />
+    <option name="BRANCH" value="origin/TobiasC" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -56,15 +65,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultPlantUmlFileTemplate": "UML Class",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/basti/intelliJ_Opgaver/Aktie_spil/AktieSpil"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Dev/Projects/IntelliJ/AktieSpil/src/DataStrukturer&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -87,7 +95,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
