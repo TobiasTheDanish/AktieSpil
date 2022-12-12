@@ -4,23 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Documentation">
-      <change afterPath="$PROJECT_DIR$/src/DataStructures/LinkedList/ILinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataStructures/LinkedList/LinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataStructures/Stack/IStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataStructures/Stack/Stack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FileIO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IDataIO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StartMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TextUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Start of Application.java With stack">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Documentation/KlasseDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/KlasseDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IDataIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IDataIO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +53,7 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
@@ -95,6 +85,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
