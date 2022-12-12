@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Initial commit">
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TransactionMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Documentation/KlasseDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/KlasseDiagram.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TransactionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransactionMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,4 +1,8 @@
 public class TransactionMenu implements IMenu {
+
+
+    int previousTransaction;
+
     public void enter(Application application){
 
     }
