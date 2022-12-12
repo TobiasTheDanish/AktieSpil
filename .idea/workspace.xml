@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Documentation">
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/KlasseDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/KlasseDiagram.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LargeCapStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LargeCapStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediumCapStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediumCapStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PennyStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PennyStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SmallCapStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SmallCapStock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

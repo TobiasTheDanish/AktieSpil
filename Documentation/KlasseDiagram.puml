@@ -115,25 +115,25 @@ class PennyStock extends AStock {
     + PennyStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + float getPrice()
-    + void setPrice()
+    + void setPrice(float price)
 }
 class SmallCapStock extends AStock {
     + SmallCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + float getPrice()
-    + void setPrice()
+    + void setPrice(float price)
 }
 class MediumCapStock extends AStock {
     + MediumCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + float getPrice()
-    + void setPrice()
+    + void setPrice(float price)
 }
 class LargeCapStock extends AStock {
     + LargeCapStock(String name, int price, Range range, float riskOfBankruptcy)
     + String getName()
     + float getPrice()
-    + void setPrice()
+    + void setPrice(float price)
 }
 
 class Range {

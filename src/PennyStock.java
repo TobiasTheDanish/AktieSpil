@@ -6,16 +6,16 @@ public class PennyStock extends AStock{
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public float getPrice() {
-        return 0;
+        return this.price;
     }
 
     @Override
     public void setPrice(float price) {
-
+        this.price = price;
     }
 }
