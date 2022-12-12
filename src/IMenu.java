@@ -1,5 +1,5 @@
 public interface IMenu
 {
-    void enter();
-    void exit();
+    void enter(Application application);
+    void exit(Application application);
 }
