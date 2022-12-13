@@ -7,5 +7,6 @@ public class TextUI implements IUI
     }
 
     public String getInput(String s) {
+
     }
 }
