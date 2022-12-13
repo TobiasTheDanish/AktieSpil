@@ -20,13 +20,14 @@ interface IDataIO {
     + void updateUserData(String path, User user)
     + void writeNewUserData(String path, ArrayList<User> data)
     + void writeGameData(String path, Arraylist<String> data)
+    + default FileIO asFileIO()
 }
 
 class FileIO implements IDataIO {
     - Scanner scanner
     + ArrayList<String> readData(String path)
     + void updateUserData(String path, User user)
-    + void writeNewUserData(String path, ArrayList<User> data)
+    + void writeNewUserData(String path, User user)
     + void writeGameData(String path, Arraylist<String> data)
 
 }
@@ -35,11 +36,13 @@ interface IUI {
     + String getInput(String msg)
     + void displayMessage(String msg)
     + void displayMessageOnLine(String msg)
+    + default TextUI asTextUI()
 }
 
 class TextUI implements IUI {
     - Scanner scanner
     + String getInput(String msg)
+    + String getInputOnLine(String msg)
     + void displayMessage(String msg)
     + void displayMessageOnLine(String msg)
     + void printPortfolio(Arraylist<Equity> equities)
@@ -58,8 +61,8 @@ class StartMenu implements IMenu {
     + void enter()
     + void exit()
     - User logIn()
-    - boolean checkExistingUsername(String username)
-    - boolean checkExistingPassword(String password)
+    - boolean checkExistingUsername(String username, FileIO fileIO)
+    - boolean checkCorrectPassword(String password, FileIO fileIO)
 }
 
 class MainMenu implements IMenu {
@@ -73,7 +76,7 @@ class TransactionMenu implements IMenu {
 }
 
 class TransactionManager {
-    + void makeTransaction(Equity equity, User user)
+    + void makeTransaction(IEquity equity, User user)
 }
 
 class GameManager {
