@@ -15,7 +15,7 @@ public abstract class AStock implements IEquity {
     @Override
     public String toString() {
         return name + ", Price: " + price + '\'' +
-                "Range: " + range + '\'' +
-                "Risk Of Bankruptcy: " + riskOfBankruptcy;
+                ", Range: [" + range.min + ", " + range.max + "]'" +
+                ", Risk Of Bankruptcy: " + riskOfBankruptcy;
     }
 }

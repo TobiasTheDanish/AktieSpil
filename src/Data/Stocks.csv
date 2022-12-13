@@ -1,6 +1,6 @@
 type; name; price; range; bankruptcy
-PennyStock; ADMA Biologics Inc; 3.50; -90.00,180.00; 1
-PennyStock; Safe Bulkers Inc; 2.7; -90.00,180.00; 1
+PennyStock; ADMA Biologics Inc; 3.50; -90.00,180.00; 1.00
+PennyStock; Safe Bulkers Inc; 2.7; -90.00,180.00; 1.00
 SmallCapStock; ACM Research Inc; 9.5; -60.00,60.00; 0.75
 SmallCapStock; Perion Network; 25.00; -60.00,60.00; 0.75
 MediumCapStock; Ambarella Inc; 78.00; -40.00,30.00; 0.50
