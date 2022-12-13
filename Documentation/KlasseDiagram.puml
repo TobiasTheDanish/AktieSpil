@@ -76,7 +76,7 @@ class TransactionMenu implements IMenu {
 }
 
 class TransactionManager {
-    + void makeTransaction(Equity equity, User user)
+    + void makeTransaction(IEquity equity, User user)
 }
 
 class GameManager {
