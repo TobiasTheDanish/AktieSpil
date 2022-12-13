@@ -20,6 +20,15 @@ public class Portfolio {
         for (IEquity iEquity:equities) {
             sum += iEquity.getPrice();
         }
+        sum += balance;
+        return sum;
+    }
+
+    public float calculateTotalEquities(){
+        float sum = 0;
+        for (IEquity iEquity:equities) {
+            sum += iEquity.getPrice();
+        }
         return sum;
     }
 

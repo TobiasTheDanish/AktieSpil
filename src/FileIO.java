@@ -13,23 +13,14 @@ public class FileIO implements IDataIO
     public ArrayList<String> readData(String path)
     {
         ArrayList<String> data = new ArrayList<>();
-        File file = new File(path);
+        scanner = new Scanner(path);
 
-        try
+        while (scanner.hasNextLine())
         {
-            scanner = new Scanner(file);
-
-            while (scanner.hasNextLine())
-            {
-                data.add(scanner.nextLine());
-            }
-
-            scanner.close();
+            data.add(scanner.nextLine());
         }
-        catch (FileNotFoundException e)
-        {
-            throw new RuntimeException(e);
-        }
+
+        scanner.close();
 
         return data;
     }
@@ -99,25 +90,19 @@ public class FileIO implements IDataIO
 
     //When a new user is created, call this function.
     //This function adds user data to the end of the file a given path.
-    @Override
-    public void writeNewUserData(String path, User user)
+    public void writeNewUserData(String path, ArrayList<User> data)
     {
-        //Reads all the existing data and puts it into an ArrayList<>.
-        ArrayList<String> data = readData(path);
-
         //Creates a file object at the given path
         File file = new File(path);
         try
         {
             //Accesses the file with the FileWriter class to write data to that file
             writer = new FileWriter(file);
-            //Rewrites the header in the file
-            writer.write("username;password\n");
-                data.add(user.getUsername() + ";" + user.getPassword());
-                for (String s : data){
-                    writer.write(s + "\n");
-                }
-
+            for (User user : data)
+            {
+                String s = user.getUsername() + user.getPassword();
+                writer.write(s);
+            }
             //Closes FileWriter, so it's ready to be used somewhere else
             writer.close();
         }
@@ -144,7 +129,6 @@ public class FileIO implements IDataIO
         {
             //Accesses the file with the FileWriter class to write data to that file
             writer = new FileWriter(file);
-            writer.write("username;password");
             for (String s : data)
             {
                 writer.write(s);

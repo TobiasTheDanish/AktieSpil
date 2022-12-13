@@ -18,4 +18,10 @@ public class PennyStock extends AStock{
     public void setPrice(float price) {
         this.price = price;
     }
+
+    public float getRiskOfBankruptcy(){
+        return this.riskOfBankruptcy;
+    }
+
+    //TODO: Make a getRange() .. min/max?
 }

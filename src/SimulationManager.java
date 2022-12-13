@@ -4,6 +4,23 @@ import java.util.Random;
 public class SimulationManager
 {
     private final Random random = new Random();
+    private int day;
+
+    public SimulationManager() {}
+
+    public SimulationManager(int day) {
+        this.day = day;
+    }
+
+    public void simulateDay(User user){
+        IUI textUI = new TextUI();
+
+        textUI.displayMessage("Day: " + day);
+        textUI.displayMessage("Your current portfolio is worth: " + user.getPortfolio().calculateTotalEquities());
+        textUI.displayMessage("And your current balance is: " + user.getPortfolio().getBalance());
+        textUI.displayMessage("Goal: " + user.getPortfolio().calculateTotalValue() + " / " + GameManager.getWinCondition());
+
+    }
 
     public void simulateDay(Application application)
     {
@@ -39,7 +56,7 @@ public class SimulationManager
 
             int weight = random.nextInt(101);
             float increaseRangeModifier = 0f;
-            
+
             if (weight <= 35)
             {
                 increaseRangeModifier = 0.10f;
@@ -65,7 +82,7 @@ public class SimulationManager
                 increaseRangeModifier = 1.00f;
             }
 
-            int increaseRange = random.nextInt((int) (numInRange*increaseRangeModifier));
+            int increaseRange = random.nextInt((int) (numInRange * increaseRangeModifier));
 
             float increasePercentage = (float) (random.nextInt(
                     (int) rangeMedian + increaseRange) - increaseRange / 2) / 100;
@@ -76,6 +93,24 @@ public class SimulationManager
                     equity.getName() + " has increased by: " + increase + " / " + (increasePercentage * 100) + "% to a total of: " + equity.getPrice());
 
             return equity;
+        }
+    }
+
+
+    public void simulateStock(IEquity equity){
+
+        IUI textUI = new TextUI();
+        Random rnd = new Random();
+        float randomRange = rnd.nextFloat(); //TODO: (equity.getRange())
+
+        if (randomRange >= 0){
+            float increase = equity.getPrice() / 100 * randomRange;
+            float newValue = equity.getPrice() + increase;
+            textUI.displayMessage(equity.getName() + " has increased by " + randomRange + "% and is now worth " + newValue);
+        } else if (randomRange < 0) {
+            float decrease = equity.getPrice() / 100 * randomRange;
+            float newValue = equity.getPrice() - decrease;
+            textUI.displayMessage(equity.getName() + " has decreased by " + randomRange + "% and is now worth " + newValue);
         }
     }
 }
