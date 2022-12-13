@@ -12,8 +12,8 @@ public class Application {
     public void run() {
         equities = dataIO.readEquityData("src/Data/Stocks.csv");
 
-        SimulationManager simulationManager = new SimulationManager();
-        simulationManager.simulateDay(this);
+        //SimulationManager simulationManager = new SimulationManager();
+
 
         menuStack.push(new MainMenu());
         menuStack.push(new StartMenu());

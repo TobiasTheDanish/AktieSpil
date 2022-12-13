@@ -13,14 +13,22 @@ public class FileIO implements IDataIO
     public ArrayList<String> readData(String path)
     {
         ArrayList<String> data = new ArrayList<>();
-        scanner = new Scanner(path);
-
-        while (scanner.hasNextLine())
+        File file = new File(path);
+        try
         {
-            data.add(scanner.nextLine());
-        }
+            scanner = new Scanner(file);
 
-        scanner.close();
+            while (scanner.hasNextLine())
+            {
+                data.add(scanner.nextLine());
+            }
+
+            scanner.close();
+        }
+        catch (FileNotFoundException e)
+        {
+            throw new RuntimeException(e);
+        }
 
         return data;
     }
@@ -52,27 +60,27 @@ public class FileIO implements IDataIO
                 IEquity equity;
                 switch (dataSplit[0].trim())
                 {
-                    case "PennyStock" :
+                    case "PennyStock" ->
                     {
                         equity = new PennyStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
                     }
-                    case "SmallCapStock" :
+                    case "SmallCapStock" ->
                     {
                         equity = new SmallCapStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
                     }
-                    case "MediumCapStock" :
+                    case "MediumCapStock" ->
                     {
                         equity = new MediumCapStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
                     }
-                    case "LargeCapStock" :
+                    case "LargeCapStock" ->
                     {
                         equity = new LargeCapStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
                     }
-                    default :
+                    default ->
                     {
                         System.err.println("This should never happen!");
                         throw new RuntimeException("Error when loading stock data! A stock type is not represented in switch statement.");
@@ -90,19 +98,23 @@ public class FileIO implements IDataIO
 
     //When a new user is created, call this function.
     //This function adds user data to the end of the file a given path.
-    public void writeNewUserData(String path, ArrayList<User> data)
+    @Override
+    public void writeNewUserData(String path, User user)
     {
+        ArrayList<String> fileData = readData(path);
+        fileData.add(user.getUsername() + ";" + user.getPassword());
         //Creates a file object at the given path
         File file = new File(path);
         try
         {
             //Accesses the file with the FileWriter class to write data to that file
             writer = new FileWriter(file);
-            for (User user : data)
+
+            for (String s : fileData)
             {
-                String s = user.getUsername() + user.getPassword();
-                writer.write(s);
+                writer.write(s + "\n");
             }
+
             //Closes FileWriter, so it's ready to be used somewhere else
             writer.close();
         }
