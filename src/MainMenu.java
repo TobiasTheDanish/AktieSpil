@@ -33,16 +33,16 @@ TextUI textUI = application.ui.asTextUI();
         displayPortfolio();
         break;
         } case "3": {
-        application.menuStack.push(new TransactionMenu("displayPrevTransactions"));
+        application.menuStack.push(new TransactionMenu("makeTransaction"));
         break;
         } case "4": {
-                application.menuStack.push(new TransactionMenu("makeTransaction"));
+                application.menuStack.push(new TransactionMenu("displayPrevTransactions"));
                 break;
             }
         default:
         //If none of the above is reached, prompt the user to let them know.
         textUI.getInput("That was not a valid action. Press enter to try again.");
-        textUI.clearConsole();
+            textUI.clearConsole();
         break;
         }
        }
