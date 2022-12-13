@@ -1,4 +1,5 @@
 public class TransactionMenu implements IMenu{
+    public final IDataIO dataIO = new FileIO();
     @Override
     public void enter(Application application) {
         buyMenu();

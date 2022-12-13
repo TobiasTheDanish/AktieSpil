@@ -1,3 +1,5 @@
+import com.sun.xml.internal.bind.v2.TODO;
+
 public class PennyStock extends AStock{
 
     public PennyStock(Range range, float riskOfBankruptcy, String name, float price) {
@@ -18,4 +20,10 @@ public class PennyStock extends AStock{
     public void setPrice(float price) {
         this.price = price;
     }
+
+    public float getRiskOfBankruptcy(){
+        return this.riskOfBankruptcy;
+    }
+
+    //TODO: Make a getRange() .. min/max?
 }
