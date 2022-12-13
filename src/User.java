@@ -4,7 +4,7 @@ public class User {
 
     private String username;
     private String password;
-    Portfolio portfolio;
+    private Portfolio portfolio;
 
     public User(String username, String password) {
         this.username = username;
