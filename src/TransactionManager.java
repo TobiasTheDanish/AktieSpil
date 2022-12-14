@@ -19,7 +19,7 @@ public class TransactionManager {
             textUI.displayMessage("You have successfully bought " + amount + " " + equity.getName() + " for " + equity.getPrice());
             textUI.getInput("Press ENTER to continue.");
         } else {
-            textUI.displayMessage("You don't have enough to buy " + equity.getName() + " .");
+            textUI.displayMessage("You don't have enough to buy " + amount + " " + equity.getName() + " .");
             textUI.getInput("Press ENTER to continue.");
         }
     }

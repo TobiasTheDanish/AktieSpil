@@ -47,21 +47,20 @@ public class TransactionMenu implements IMenu
 		textUI.displayMessage("Welcome to the Buy Menu");
 		textUI.displayMessage("");
 		textUI.displayMessage("1) View all stocks\n" +
-									  "2) Go back");
+				                   "2) Go back");
 		String input = textUI.getInputOnLine("What would you like to do: ");
 		switch (input)
 		{
 			case "1":
 			{
 				textUI.clearConsole();
-				//ToDo Print out all stocks available.
 				textUI.printListOfEquities(application.getEquities());
 
 				IEquity selectedEquity = null;
 
 				while (selectedEquity == null)
 				{
-					String stockInput = textUI.getInput("Enter number of the stock would you like to buy?");
+					String stockInput = textUI.getInput("Enter number of the stock you would like to buy?");
 
 					try
 					{
@@ -129,8 +128,8 @@ public class TransactionMenu implements IMenu
 				break;
 			}
 		}
-
 	}
+
 	public void displayPrevTransactions(Application application) {
 		// evt en switch case her med en lille menu
 		// evt 1: display previous transactions press q to exit menu og en default som de andre

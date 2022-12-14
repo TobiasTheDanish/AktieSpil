@@ -15,9 +15,9 @@ public class MainMenu implements IMenu
         textUI.displayMessage("---------------------------------------------------------");
         textUI.displayMessage("What action do you wish to make?");
         textUI.displayMessage("1)   Search for stocks.\n" +
-                                      "2)   View your portfolio.\n" +
-                                      "3)   View your previous transactions.\n" +
-                                      "4)   Make transaction.\n");
+                                   "2)   View your portfolio.\n" +
+                                   "3)   View your previous transactions.\n" +
+                                   "4)   Make transaction.\n");
         input = textUI.getInput("Enter your selection, or press 'Q' to log out:");
         //Switch statement to perform different logic based on input
         switch (input.trim()) {
@@ -49,13 +49,12 @@ public class MainMenu implements IMenu
 
 
     private void displayPortfolio() {
+
     }
 
     private void displayStocks() {
 
     }
-
-
 
     public void enter(Application application)
     {
