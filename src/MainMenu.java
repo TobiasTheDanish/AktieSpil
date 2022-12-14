@@ -15,7 +15,8 @@ public class MainMenu implements IMenu
         textUI.displayMessage("1)   Search for stocks.\n" +
                                    "2)   View your portfolio.\n" +
                                    "3)   View your previous transactions.\n" +
-                                   "4)   Make transaction.\n");
+                                   "4)   Make transaction.\n" +
+                                   "5)   Simulate to next day.\n");
         input = textUI.getInput("Enter your selection, or press 'Q' to log out:");
         //Switch statement to perform different logic based on input
         switch (input.trim()) {
@@ -25,7 +26,7 @@ public class MainMenu implements IMenu
                 exit(application);
                 break;
             case "1": {
-                displayStocks(application);
+                application.menuStack.push(new SearchMenu());
                 break;
             } case "2": {
                 displayPortfolio();
@@ -35,6 +36,10 @@ public class MainMenu implements IMenu
                 break;
             } case "4": {
                 application.menuStack.push(new TransactionMenu("makeTransaction"));
+                break;
+            }
+            case "5": {
+                application.menuStack.push(new SimulationMenu());
                 break;
             }
             default:
@@ -50,46 +55,7 @@ public class MainMenu implements IMenu
 
     }
 
-    private void displayStocks(Application application) {
-        TextUI textUI = application.ui.asTextUI();
-        FileIO fileIO = application.dataIO.asFileIO();
-
-        while (true) {
-            textUI.clearConsole();
-            textUI.displayMessage("This is all available stocks:");
-            textUI.printListOfEquities(application.getEquities());
-
-            IEquity selectedEquity = null;
-
-            while (selectedEquity == null) {
-
-                textUI.displayMessage("Enter the number of the stock you would like to get a closer look at");
-                String input = textUI.getInputOnLine("or press 'Q' to go back: ");
-                if (input.trim().equalsIgnoreCase("Q")) return;
-
-                try {
-                    int stockIndex = Integer.parseInt(input);
-                    selectedEquity = application.getEquities().get(stockIndex - 1);
-                } catch (NumberFormatException e) {
-                    textUI.displayMessage("That was not a number. Try again.");
-                } catch (IndexOutOfBoundsException e) {
-                    textUI.displayMessage("That number was too big or too small. Try again.");
-                }
-            }
-            textUI.clearConsole();
-
-            textUI.displayMessage("Name: " + selectedEquity.getName() + ".");
-            textUI.displayMessage("Price: " + selectedEquity.getPrice() + ".");
-            textUI.displayMessage("Min/max range pr. day: " + selectedEquity.getRange() + ".");
-            textUI.displayMessage( "Risk of bankruptcy: " + Colors.ANSI_RED + selectedEquity.getRiskOfBankruptcy() + "%" + Colors.ANSI_RESET + ".");
-
-            textUI.displayMessage("-------------------------");
-            textUI.getInput("Press 'ENTER' to go back.");
-
-        }
-
-    }
-
+    @Override
     public void enter(Application application)
     {
         displayUserOptions(application);
