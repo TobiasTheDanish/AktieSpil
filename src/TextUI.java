@@ -20,8 +20,11 @@ public class TextUI implements IUI {
         return scanner.nextLine();
     }
 
-    public void printPortfolio(ArrayList<IEquity> equities){
-        //print portfolio
+    public void printListOfEquities(ArrayList<IEquity> equities){
+        for (int i = 0; i < equities.size(); i++)
+        {
+            displayMessage((i+1)+")    " + equities.get(i).getName());
+        }
     }
 
     public void clearConsole(){

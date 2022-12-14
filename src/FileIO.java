@@ -14,7 +14,6 @@ public class FileIO implements IDataIO
     {
         ArrayList<String> data = new ArrayList<>();
         File file = new File(path);
-
         try
         {
             scanner = new Scanner(file);
@@ -61,27 +60,27 @@ public class FileIO implements IDataIO
                 IEquity equity;
                 switch (dataSplit[0].trim())
                 {
-                    case "PennyStock" :
+                    case "PennyStock" ->
                     {
                         equity = new PennyStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
                     }
-                    case "SmallCapStock" :
+                    case "SmallCapStock" ->
                     {
                         equity = new SmallCapStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
                     }
-                    case "MediumCapStock" :
+                    case "MediumCapStock" ->
                     {
                         equity = new MediumCapStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
                     }
-                    case "LargeCapStock" :
+                    case "LargeCapStock" ->
                     {
                         equity = new LargeCapStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
                     }
-                    default :
+                    default ->
                     {
                         System.err.println("This should never happen!");
                         throw new RuntimeException("Error when loading stock data! A stock type is not represented in switch statement.");
@@ -102,21 +101,19 @@ public class FileIO implements IDataIO
     @Override
     public void writeNewUserData(String path, User user)
     {
-        //Reads all the existing data and puts it into an ArrayList<>.
-        ArrayList<String> data = readData(path);
-
+        ArrayList<String> fileData = readData(path);
+        fileData.add(user.getUsername() + ";" + user.getPassword());
         //Creates a file object at the given path
         File file = new File(path);
         try
         {
             //Accesses the file with the FileWriter class to write data to that file
             writer = new FileWriter(file);
-            //Rewrites the header in the file
-            writer.write("username;password\n");
-                data.add(user.getUsername() + ";" + user.getPassword());
-                for (String s : data){
-                    writer.write(s + "\n");
-                }
+
+            for (String s : fileData)
+            {
+                writer.write(s + "\n");
+            }
 
             //Closes FileWriter, so it's ready to be used somewhere else
             writer.close();
@@ -144,7 +141,6 @@ public class FileIO implements IDataIO
         {
             //Accesses the file with the FileWriter class to write data to that file
             writer = new FileWriter(file);
-            writer.write("username;password");
             for (String s : data)
             {
                 writer.write(s);
