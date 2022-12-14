@@ -11,7 +11,8 @@ public class MainMenu implements IMenu
         textUI.displayMessage("What action do you wish to make?");
         textUI.displayMessage("1)   View all stocks.\n" +
                                    "2)   View your portfolio.\n" +
-                                   "3)   View your previous transactions.");
+                                   "3)   View your previous transactions.\n" +
+                                   "4)   Simulate to next day.\n\n");
         textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
         input = textUI.getInput("Enter your selection, or press" + Colors.ANSI_CYAN + " Q " + Colors.ANSI_RESET + "to log out:");
         //Switch statement to perform different logic based on input
@@ -22,16 +23,16 @@ public class MainMenu implements IMenu
                 exit(application);
                 break;
             case "1": {
-                displayStocks(application);
+                application.menuStack.push(new SearchMenu());
                 break;
             } case "2": {
-                displayPortfolio(application);
+                application.menuStack.push(new PortfolioMenu());
                 break;
             } case "3": {
                 application.menuStack.push(new TransactionMenu("displayPrevTransactions"));
                 break;
-            } case "4": {
-                application.menuStack.push(new TransactionMenu("makeTransaction"));
+            } case "4":  {
+                application.menuStack.push(new SimulationMenu());
                 break;
             }
             default:
@@ -176,6 +177,7 @@ public class MainMenu implements IMenu
 
     }
 
+    @Override
     public void enter(Application application) {
         displayUserOptions(application);
     }

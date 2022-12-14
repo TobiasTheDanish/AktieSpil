@@ -29,10 +29,14 @@ public class Portfolio {
         }
     }
 
-    public void removeFromPortfolio(IEquity equity, int amount) {
+    public void removeFromPortfolio(IEquity equity, int amount) throws IndexOutOfBoundsException {
         String equityName = equity.getName();
 
-        if (amount >= equityAmount.get(equityName))
+        if (amount > equityAmount.get(equityName))
+        {
+            throw new IndexOutOfBoundsException("The amount given to removeFromPortfolio(), was bigger than the amount int the portfolio");
+        }
+        else if (amount == equityAmount.get(equityName))
         {
             equities.remove(equity);
             equityAmount.remove(equityName);
@@ -71,6 +75,10 @@ public class Portfolio {
     public float getAveragePrice(IEquity equity)
     {
         return purchasePrices.get(equity.getName());
+    }
+
+    public int getAmountOfEquity(IEquity equity) {
+        return equityAmount.get(equity.getName());
     }
 
     private float calcNewAveragePrice(String equityName, float newPrice, int newAmount)

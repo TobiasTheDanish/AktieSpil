@@ -5,5 +5,5 @@ SmallCapStock; ACM Research Inc; 9.5; -55.00,60.00; 0.75
 SmallCapStock; Perion Network; 25.00; -55.00,60.00; 0.75
 MediumCapStock; Ambarella Inc; 78.00; -40.00,45.00; 0.50
 MediumCapStock; Stitch Fix Inc; 53.00; -40.00,45.00; 0.50
-LargeCapStock; Coca-Cola; 65.00; -20.00,20.00; 0.25
-LargeCapStock; Amazon; 90.00; -20.00,20.00; 0.25
+LargeCapStock; Coca-Cola; 65.00; -20.00,22.00; 0.25
+LargeCapStock; Amazon; 90.00; -20.00,22.00; 0.25
