@@ -1,6 +1,5 @@
 public class TransactionMenu implements IMenu
 {
-	public final IDataIO dataIO = new FileIO();
 	private String nameOfFunction;
 	private TransactionManager transactionManager = null;
 
