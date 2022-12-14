@@ -108,11 +108,10 @@ public class SimulationManager
         {
             Range range = equity.getRange();
 
-            float rangeMedian = (range.max + range.min) / 2;
             float numInRange = range.max - range.min;
 
             int weight = random.nextInt(101);
-            float increaseRangeModifier = 0f;
+            float increaseRangeModifier;
 
             if (weight <= 35)
             {
@@ -139,15 +138,11 @@ public class SimulationManager
                 increaseRangeModifier = 1.00f;
             }
 
-            //int increaseRange = random.nextInt((int) (numInRange * increaseRangeModifier));
             float increaseRange = random.nextFloat((numInRange * increaseRangeModifier));
 
             float increasePercentage = ((random.nextFloat(increaseRange)) - increaseRange/2) / 100;
-            //float increasePercentage = (float) (random.nextInt(1 + increaseRange) - increaseRange / 2) / 100;
             float increase = equity.getPrice() * increasePercentage;
             equity.setPrice(equity.getPrice() + increase);
-
-            //System.out.println(equity.getName() + " increased by: " + increase + "$ / " + (increasePercentage*100) + "%.");
 
             return equity;
         }
