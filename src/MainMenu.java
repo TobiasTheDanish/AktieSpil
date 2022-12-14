@@ -50,7 +50,7 @@ public class MainMenu implements IMenu
         TextUI textUI = application.ui.asTextUI();
        TransactionManager transactionManager = new TransactionManager(application);
         textUI.clearConsole();
-        textUI.printListOfEquities(application.getCurrentUser().getPortfolio().equities);
+        textUI.printListOfEquitiesPlusAveragePrice(application.getCurrentUser().getPortfolio().equities,application.getCurrentUser());
         IEquity selectedEquity = null;
         String sellInput = null;
 
