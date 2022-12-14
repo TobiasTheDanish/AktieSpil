@@ -40,43 +40,6 @@ public class TransactionMenu implements IMenu
 		application.menuStack.pop();
 	}
 
-	/*public void buyMenu(Application application)
-	{
-
-	  // textUI.displayMessage();
-	  //ToDo make a case for every single stock. DONT DO THIS!!!!!
-	  // (Just Copy/Paste and change the name, so the name/price is right) NO PLEASE DONT :(
-	  switch (stockInput){
-		  case "1":{
-			  textUI.clearConsole();
-			  do {
-
-			  textUI.displayMessage("1) Buy stock\n" +
-											  "2) Go back");
-			   buyInput = textUI.getInput("What would you like to do?");
-			  } while (!buyInput.trim().equals("1") && !buyInput.trim().equals("2"));
-
-			  if (buyInput.trim().equals("1")){
-				  textUI.clearConsole();
-
-				  //ToDo Måske en TryCatch eller lign. der sørger for at buyAmount KUN tager imod tal.
-				  textUI.displayMessage("How many stocks of " + "" + " would you like to purchase?");
-				  buyAmount = textUI.getInputOnLine("Quantity: ");
-
-
-				  int amount = Integer.parseInt(buyAmount);
-
-
-				  transactionManager.makeTransaction(stockname, buyAmount, application.getCurrentUser())
-			  }
-		  }
-		  case "2":{
-			  //ToDo Copy Case 1 and rewrite name/price so i matches the next stock... NOOOO PLEEEEASE ;(((
-
-		  }
-	  }
-	}
-	}*/
 
 	private void makeTransaction(Application application) {
 		// evt en switch case her med en lille menu ligesom i mainmenu
