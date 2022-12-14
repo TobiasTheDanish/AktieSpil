@@ -43,8 +43,8 @@ public class StartMenu implements IMenu{
             } else {
                 while (!checkCorrectPassword(currentUsername, currentPassword, fileIO)) {
                     do {
-                        textUI.displayMessage("|-- Incorrect Password --|");
-                        input = textUI.getInput("Try again(T) or go back(B)");
+                        textUI.displayMessage("|--"+ Colors.ANSI_RED +"Incorrect Password" + Colors.ANSI_RESET + "--|");
+                        input = textUI.getInput("Try again(" + Colors.ANSI_CYAN + "T" + Colors.ANSI_RESET + ") or go back("+ Colors.ANSI_CYAN + "B" + Colors.ANSI_RESET +")");
 
                         //If the user chooses to go back.
                         if (input.trim().equalsIgnoreCase("B")) {
@@ -74,7 +74,7 @@ public class StartMenu implements IMenu{
                 Giving the options to create a new user, or try to log in with another username.
                 The following do-while-loop will only accept a 'T' or 'N' as response.
                  */
-                input = textUI.getInput("Create new user(N) or Try again(T)");
+                input = textUI.getInput("Create new user(" + Colors.ANSI_CYAN + "N" + Colors.ANSI_RESET + ") or Try again(" + Colors.ANSI_CYAN + "T" + Colors.ANSI_RESET + ")");
                 if (input.trim().equalsIgnoreCase("T")) {
                     logIn(application);
                 } else if (input.trim().equalsIgnoreCase("N")) {
