@@ -12,17 +12,9 @@ public class SimulationManager
         this.day = day;
     }
 
-    public void simulateDay(User user){
-        IUI textUI = new TextUI();
-
-        textUI.displayMessage("Day: " + day);
-        textUI.displayMessage("Your current portfolio is worth: " + user.getPortfolio().calculateTotalEquities());
-        textUI.displayMessage("And your current balance is: " + user.getPortfolio().getBalance());
-        textUI.displayMessage("Goal: " + user.getPortfolio().calculateTotalValue() + " / " + GameManager.getWinCondition());
-    }
-
     public void simulateDay(Application application)
     {
+        IUI textUI = application.ui.asTextUI();
         ArrayList<IEquity> equities = application.getEquities();
 
         for (IEquity equity : equities)
@@ -30,6 +22,10 @@ public class SimulationManager
             int index = equities.indexOf(equity);
             equities.set(index, simulateEquity(equity));
         }
+        textUI.displayMessage("Day: " + day);
+        textUI.displayMessage("Your current portfolio is worth: " + application.getCurrentUser().getPortfolio().calculateTotalEquities());
+        textUI.displayMessage("And your current balance is: " + application.getCurrentUser().getPortfolio().getBalance());
+        textUI.displayMessage("Goal: " + application.getCurrentUser().getPortfolio().calculateTotalValue() + " / " + GameManager.getWinCondition());
     }
 
     private IEquity simulateEquity(IEquity equity)
