@@ -79,8 +79,7 @@ public class TransactionMenu implements IMenu
 
 				textUI.clearConsole();
 				String buyInput;
-				do
-				{
+				do {
 					textUI.displayMessage("You selected " + selectedEquity.getName());
 					textUI.displayMessage("1) Buy stock\n" +
 												  "2) Go back");
@@ -99,12 +98,10 @@ public class TransactionMenu implements IMenu
 
 						if (amountInput.equalsIgnoreCase("Q")) break;
 
-						try
-						{
+						try {
 							int buyAmount = Integer.parseInt(amountInput);
 
-							if (buyAmount <= 0)
-							{
+							if (buyAmount <= 0) {
 								textUI.displayMessage("The amount cannot be negative or 0! Try again.");
 								continue;
 							}
@@ -112,8 +109,7 @@ public class TransactionMenu implements IMenu
 							transactionManager.makeTransaction(selectedEquity, buyAmount, application.getCurrentUser());
 							break;
 						}
-						catch (NumberFormatException e)
-						{
+						catch (NumberFormatException e) {
 							textUI.displayMessage("That was not a number. Try again.");
 						}
 					}
@@ -121,6 +117,7 @@ public class TransactionMenu implements IMenu
 					break;
 				}
 				else {
+					exit(application);
 					break;
 				}
 

@@ -1,3 +1,5 @@
+
+
 public class PennyStock extends AStock{
 
     public PennyStock(Range range, float riskOfBankruptcy, String name, float price) {
