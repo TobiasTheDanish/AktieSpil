@@ -48,6 +48,8 @@ public class TransactionMenu implements IMenu
 		textUI.displayMessage("");
 		textUI.displayMessage("1) View all stocks\n" +
 				                   "2) Go back");
+
+
 		String input = textUI.getInputOnLine("What would you like to do: ");
 		switch (input) {
 			case "1": {
