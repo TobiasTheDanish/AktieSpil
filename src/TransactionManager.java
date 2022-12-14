@@ -16,6 +16,7 @@ public class TransactionManager {
         if (userBalance >= stockPrice) {
             userBalance -= stockPrice;
             user.getPortfolio().setBalance(userBalance);
+            user.getPortfolio().addToPortfolio(equity, amount);
             textUI.displayMessage("You have successfully bought " + amount + " " + equity.getName() + " for " + equity.getPrice());
             textUI.getInput("Press ENTER to continue.");
         } else {

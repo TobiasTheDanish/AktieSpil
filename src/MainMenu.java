@@ -50,12 +50,77 @@ public class MainMenu implements IMenu
 
     private void displayPortfolio(Application application) {
         TextUI textUI = application.ui.asTextUI();
-        String input;
+
         textUI.clearConsole();
         textUI.printListOfEquities(application.getCurrentUser().getPortfolio().equities);
-        textUI.displayMessage("");
+        IEquity selectedEquity = null;
+        String sellInput = null;
+        switch (sellInput){
+        while (selectedEquity == null)
+        {
+            String stockInput = textUI.getInput("What stock would you like to look at?");
+
+            try
+            {
+                int stockIndex = Integer.parseInt(stockInput);
+                selectedEquity = application.getEquities().get(stockIndex-1);
+            }
+            catch (NumberFormatException e)
+            {
+                textUI.displayMessage("That was not a number. Try again.");
+            }
+            catch (IndexOutOfBoundsException e)
+            {
+                textUI.displayMessage("That number was too big or too small. Try again.");
+            }
+
+
+        do {
+            textUI.displayMessage("You selected " + selectedEquity.getName());
+            textUI.displayMessage("1) Sell stocks.\n" +
+                                       "2) Go back.");
+            sellInput = textUI.getInput("What would you like to do with it?");
+        } while (!sellInput.trim().equals("1") && !sellInput.trim().equals("2"));
+        if(sellInput.trim().equals("1")) {
+            textUI.clearConsole();
+
+            while (true) {
+                textUI.displayMessage("How many stocks of " + selectedEquity.getName() + " would you like to sell?");
+                String amountInput = textUI.getInputOnLine("Quantity: ");
+
+                try {
+                    int sellAmount = Integer.parseInt(amountInput);
+
+                    if (sellAmount <= 0) {
+                        textUI.displayMessage("The amount cannot be negative or 0! Try again.");
+                        continue;
+                    }
+                    transactionManager.sellStock(selectedEquity, sellAmount, application.getCurrentUser());
+                    break;
+                } catch (NumberFormatException e) {
+                    textUI.displayMessage("That was not a number. Try again.");
+                }
+                break;
+            }
+        }
+        else {
+            exit(application);
+        }
 
     }
+        case "2": {
+            textUI.clearConsole();
+        }
+                exit(application);
+                break;
+        }
+}
+
+
+
+
+
+
 
     private void displayStocks() {
 
