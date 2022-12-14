@@ -66,6 +66,9 @@ class StartMenu implements IMenu {
 }
 
 class MainMenu implements IMenu {
+    - void displayUserOptions(Application application)
+    - void displayPortfolio(Application application)
+    - void displayStocks(Application application)
     + void enter()
     + void exit()
 }

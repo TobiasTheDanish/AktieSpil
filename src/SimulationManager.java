@@ -84,27 +84,7 @@ public class SimulationManager
             float increase = equity.getPrice() * increasePercentage;
             equity.setPrice(equity.getPrice() + increase);
 
-            System.out.println(
-                    equity.getName() + " has increased by: " + increase + " / " + (increasePercentage * 100) + "% to a total of: " + equity.getPrice());
-
             return equity;
-        }
-    }
-
-    public void simulateStock(IEquity equity){
-
-        IUI textUI = new TextUI();
-        Random rnd = new Random();
-        float randomRange = rnd.nextFloat(); //TODO: (equity.getRange())
-
-        if (randomRange >= 0){
-            float increase = equity.getPrice() / 100 * randomRange;
-            float newValue = equity.getPrice() + increase;
-            textUI.displayMessage(equity.getName() + " has increased by " + randomRange + "% and is now worth " + newValue);
-        } else if (randomRange < 0) {
-            float decrease = equity.getPrice() / 100 * randomRange;
-            float newValue = equity.getPrice() - decrease;
-            textUI.displayMessage(equity.getName() + " has decreased by " + randomRange + "% and is now worth " + newValue);
         }
     }
 }
