@@ -7,7 +7,9 @@ public class SearchMenu implements IMenu
     }
 
     private void displayStocks(Application application) {
+        TransactionManager transactionManager = new TransactionManager(application);
         TextUI textUI = application.ui.asTextUI();
+        FileIO fileIO = application.dataIO.asFileIO();
 
         textUI.clearConsole();
         textUI.displayMessage("This is all available stocks:");
@@ -18,8 +20,7 @@ public class SearchMenu implements IMenu
         while (selectedEquity == null) {
 
             textUI.displayMessage("Enter the number of the stock you would like to get a closer look at");
-            String input = textUI.getInputOnLine("or press 'Q' to go back: ");
-
+            String input = textUI.getInputOnLine("or press" + Colors.ANSI_CYAN + " Q " + Colors.ANSI_RESET + "to go back: ");
             if (input.trim().equalsIgnoreCase("Q")) {
                 exit(application);
                 return;
@@ -34,15 +35,37 @@ public class SearchMenu implements IMenu
                 textUI.displayMessage("That number was too big or too small. Try again.");
             }
         }
-        textUI.clearConsole();
 
+
+        textUI.clearConsole();
         textUI.displayMessage("Name: " + selectedEquity.getName() + ".");
         textUI.displayMessage("Price: " + selectedEquity.getPrice() + ".");
         textUI.displayMessage("Min/max range pr. day: " + selectedEquity.getRange() + ".");
-        textUI.displayMessage( "Risk of bankruptcy: " + Colors.ANSI_RED + selectedEquity.getRiskOfBankruptcy() + "%" + Colors.ANSI_RESET + ".");
-
+        textUI.displayMessage("Risk of bankruptcy: " + Colors.ANSI_RED + selectedEquity.getRiskOfBankruptcy() + "%" + Colors.ANSI_RESET + ".");
         textUI.displayMessage("-------------------------");
-        textUI.getInput("Press 'ENTER' to go back.");
+        textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
+        String buyInput = textUI.getInput("Press" + Colors.ANSI_CYAN + " B " + Colors.ANSI_RESET + "to buy stock or press"+ Colors.ANSI_CYAN + " ENTER " + Colors.ANSI_RESET +"to go back: ");
+        int amount = 0;
+        if (buyInput.trim().equalsIgnoreCase("B")){
+            try
+            {
+                textUI.displayMessage("How many stocks would you like to buy for " + selectedEquity.getPrice() + " each.");
+                amount = Integer.parseInt(textUI.getInputOnLine("Quantity: "));
+                if(transactionManager.makeTransaction(selectedEquity, amount, application.getCurrentUser())){
+                    exit(application);
+                    return;
+                }
+            }
+            catch (NumberFormatException e)
+            {
+                textUI.displayMessage("That was not a number. Try again.");
+            }
+            catch (IndexOutOfBoundsException e)
+            {
+                textUI.displayMessage("That number was too big or too small. Try again.");
+            }
+        }
+
     }
 
     @Override

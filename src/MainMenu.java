@@ -1,6 +1,3 @@
-import java.awt.*;
-import java.util.Scanner;
-
 public class MainMenu implements IMenu
 {
 
@@ -18,7 +15,6 @@ public class MainMenu implements IMenu
                                    "4)   Simulate to next day.\n\n");
         textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
         input = textUI.getInput("Enter your selection, or press" + Colors.ANSI_CYAN + " Q " + Colors.ANSI_RESET + "to log out:");
-        input = textUI.getInput("Enter your selection, or press 'Q' to log out:");
         //Switch statement to perform different logic based on input
         switch (input.trim()) {
             case "q":
@@ -30,7 +26,7 @@ public class MainMenu implements IMenu
                 application.menuStack.push(new SearchMenu());
                 break;
             } case "2": {
-                displayPortfolio(application);
+                application.menuStack.push(new PortfolioMenu());
                 break;
             } case "3": {
                 application.menuStack.push(new TransactionMenu("displayPrevTransactions"));
@@ -47,139 +43,6 @@ public class MainMenu implements IMenu
         }
     }
 
-
-    private void displayPortfolio(Application application) {
-        TextUI textUI = application.ui.asTextUI();
-       TransactionManager transactionManager = new TransactionManager(application);
-        textUI.clearConsole();
-        textUI.printListOfEquities(application.getCurrentUser().getPortfolio().equities);
-        IEquity selectedEquity = null;
-        String sellInput = null;
-
-        while (selectedEquity == null)
-        {
-            String stockInput = textUI.getInput("What stock would you like to look at?");
-
-            try
-            {
-                int stockIndex = Integer.parseInt(stockInput);
-                selectedEquity = application.getCurrentUser().getPortfolio().equities.get(stockIndex-1);
-            }
-            catch (NumberFormatException e)
-            {
-                textUI.displayMessage("That was not a number. Try again.");
-            }
-            catch (IndexOutOfBoundsException e)
-            {
-                textUI.displayMessage("That number was too big or too small. Try again.");
-            }
-
-
-        do {
-            textUI.displayMessage("You selected " + selectedEquity.getName());
-            textUI.displayMessage("1) Sell stocks.\n" +
-                                       "2) Go back.");
-            sellInput = textUI.getInput("What would you like to do with it?");
-        } while (!sellInput.trim().equals("1") && !sellInput.trim().equals("2"));
-        if(sellInput.trim().equals("1")) {
-            textUI.clearConsole();
-
-            while (true) {
-                textUI.displayMessage("How many stocks of " + selectedEquity.getName() + " would you like to sell?");
-                String amountInput = textUI.getInputOnLine("Quantity: ");
-
-                try {
-                    int sellAmount = Integer.parseInt(amountInput);
-
-                    if (sellAmount <= 0) {
-                        textUI.displayMessage("The amount cannot be negative or 0! Try again.");
-                        continue;
-                    }
-                    transactionManager.sellStock(selectedEquity, sellAmount, application.getCurrentUser());
-                    break;
-                } catch (NumberFormatException e) {
-                    textUI.displayMessage("That was not a number. Try again.");
-                }
-                break;
-            }
-        }
-        else {
-            exit(application);
-        }
-
-    }
-
-}
-
-
-
-
-
-
-
-    private void displayStocks(Application application) {
-        TransactionManager transactionManager = new TransactionManager(application);
-        TextUI textUI = application.ui.asTextUI();
-        FileIO fileIO = application.dataIO.asFileIO();
-
-        while (true) {
-            textUI.clearConsole();
-            textUI.displayMessage("This is all available stocks:");
-            textUI.printListOfEquities(application.getEquities());
-
-            IEquity selectedEquity = null;
-
-            while (selectedEquity == null) {
-
-                textUI.displayMessage("Enter the number of the stock you would like to get a closer look at");
-                String input = textUI.getInputOnLine("or press" + Colors.ANSI_CYAN + " Q " + Colors.ANSI_RESET + "to go back: ");
-                if (input.trim().equalsIgnoreCase("Q")) return;
-
-                try {
-                    int stockIndex = Integer.parseInt(input);
-                    selectedEquity = application.getEquities().get(stockIndex - 1);
-                } catch (NumberFormatException e) {
-                    textUI.displayMessage("That was not a number. Try again.");
-                } catch (IndexOutOfBoundsException e) {
-                    textUI.displayMessage("That number was too big or too small. Try again.");
-                }
-            }
-
-            while(true) {
-                textUI.clearConsole();
-                textUI.displayMessage("Name: " + selectedEquity.getName() + ".");
-                textUI.displayMessage("Price: " + selectedEquity.getPrice() + ".");
-                textUI.displayMessage("Min/max range pr. day: " + selectedEquity.getRange() + ".");
-                textUI.displayMessage("Risk of bankruptcy: " + Colors.ANSI_RED + selectedEquity.getRiskOfBankruptcy() + "%" + Colors.ANSI_RESET + ".");
-                textUI.displayMessage("-------------------------");
-                textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
-                String buyInput = textUI.getInput("Press" + Colors.ANSI_CYAN + " B " + Colors.ANSI_RESET + "to buy stock or press"+ Colors.ANSI_CYAN + " ENTER " + Colors.ANSI_RESET +"to go back: ");
-                int amount = 0;
-                if (buyInput.trim().equalsIgnoreCase("B")){
-                    try
-                    {
-                     textUI.displayMessage("How many stocks would you like to buy for " + selectedEquity.getPrice() + " each.");
-                     amount = Integer.parseInt(textUI.getInputOnLine("Quantity: "));
-                     if(transactionManager.makeTransaction(selectedEquity, amount, application.getCurrentUser())){
-                            return;
-                     }
-                    }
-                    catch (NumberFormatException e)
-                    {
-                        textUI.displayMessage("That was not a number. Try again.");
-                    }
-                    catch (IndexOutOfBoundsException e)
-                    {
-                        textUI.displayMessage("That number was too big or too small. Try again.");
-                    }
-
-
-                }
-            }
-        }
-
-
-    }
 
     @Override
     public void enter(Application application) {
