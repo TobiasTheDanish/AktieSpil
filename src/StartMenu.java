@@ -36,12 +36,12 @@ public class StartMenu implements IMenu{
         if (checkExistingUsername(currentUsername, fileIO)) {
             String input;
             currentPassword = textUI.getInputOnLine("Enter password: ");
-            if (checkCorrectPassword(currentPassword, fileIO)) {
+            if (checkCorrectPassword(currentUsername, currentPassword, fileIO)) {
                 //If the password matches the existing username, then you will be logged in.
                 textUI.displayMessage("You have successfully logged in.");
                 return new User(currentUsername, currentPassword);
             } else {
-                while (!checkCorrectPassword(currentPassword, fileIO)) {
+                while (!checkCorrectPassword(currentUsername, currentPassword, fileIO)) {
                     do {
                         textUI.displayMessage("|-- Incorrect Password --|");
                         input = textUI.getInput("Try again(T) or go back(B)");
@@ -55,7 +55,7 @@ public class StartMenu implements IMenu{
                             currentPassword = textUI.getInputOnLine("Enter password: ");
 
                             //If password is correct, return the user.
-                            if (checkCorrectPassword(currentPassword, fileIO)) {
+                            if (checkCorrectPassword(currentUsername, currentPassword, fileIO)) {
                                 return new User(currentUsername, currentPassword);
                             }
                         }
@@ -108,14 +108,17 @@ public class StartMenu implements IMenu{
         //If the method didn't find a match, it will return false.
         return false;
     }
-    boolean checkCorrectPassword(String password, FileIO fileIO){
+    boolean checkCorrectPassword(String username, String password, FileIO fileIO){
        ArrayList<String> data = fileIO.readData("src/Data/Userdata.csv");
 
         //Loops through the whole list of userdata
         for (int i = 0; i < data.size(); i++){
             //Returns true if any of the passwords matches the given password.
-            if (data.get(i).split(";")[1].equals(password)){
-                return true;
+            if (data.get(i).split(";")[0].equalsIgnoreCase(username)) {
+                if (data.get(i).split(";")[1].equals(password)) {
+                    return true;
+                }
+                return false;
             }
         }
         //If the method didn't find a match, it will return false.

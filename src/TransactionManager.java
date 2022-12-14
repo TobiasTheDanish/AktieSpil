@@ -24,4 +24,18 @@ public class TransactionManager {
             textUI.getInput("Press ENTER to continue.");
         }
     }
+
+    public void sellStock(IEquity equity, int amount, User user) {
+        TextUI textUI = application.ui.asTextUI();
+
+        float userBalance = user.getPortfolio().getBalance();
+        float stockPrice = equity.getPrice() * amount;
+
+        userBalance += stockPrice;
+
+        user.getPortfolio().setBalance(userBalance);
+        user.getPortfolio().removeFromPortfolio(equity,amount);
+        textUI.displayMessage("You have successfully sold " + amount + " " + equity.getName() + " for " + equity.getPrice());
+        textUI.getInput("Press ENTER to continue.");
+    }
 }

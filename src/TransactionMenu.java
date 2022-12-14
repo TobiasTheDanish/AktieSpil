@@ -107,6 +107,7 @@ public class TransactionMenu implements IMenu
 				}
 				else {
 					exit(application);
+					break;
 				}
 
 			}
