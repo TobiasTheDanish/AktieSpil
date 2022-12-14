@@ -5,9 +5,9 @@ public class Portfolio {
 
     ArrayList<IEquity> equities;
 
-    Dictionary<String, Integer> equityAmount;
+    Dictionary<String, ArrayList<Integer>> equityAmount;
 
-    Dictionary<String, Integer> purchasePrices;
+    Dictionary<String, ArrayList<Integer>> purchasePrices;
     private float balance;
 
     public Portfolio(ArrayList<IEquity> equities, float balance) {

@@ -2,8 +2,7 @@ public class TransactionManager {
 
     private Application application;
 
-    public TransactionManager(Application application)
-    {
+    public TransactionManager(Application application) {
         this.application = application;
     }
 
@@ -17,10 +16,11 @@ public class TransactionManager {
         if (userBalance >= stockPrice) {
             userBalance -= stockPrice;
             user.getPortfolio().setBalance(userBalance);
-            textUI.displayMessage("You have successfully bought " + equity.getName() + " .");
+            textUI.displayMessage("You have successfully bought " + amount + " " + equity.getName() + " for " + equity.getPrice());
             textUI.getInput("Press ENTER to continue.");
         } else {
             textUI.displayMessage("You don't have enough to buy " + equity.getName() + " .");
+            textUI.getInput("Press ENTER to continue.");
         }
     }
 }
