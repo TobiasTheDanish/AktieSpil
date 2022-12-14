@@ -15,6 +15,8 @@ public class Portfolio {
         this.balance = balance;
     }
 
+    
+
     public float calculateTotalValue(){
         float sum = 0;
         for (IEquity iEquity:equities) {

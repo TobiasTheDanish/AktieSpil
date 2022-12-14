@@ -18,6 +18,7 @@ public class TransactionManager {
             userBalance -= stockPrice;
             user.getPortfolio().setBalance(userBalance);
             textUI.displayMessage("You have successfully bought " + equity.getName() + " .");
+            textUI.getInput("Press ENTER to continue.");
         } else {
             textUI.displayMessage("You don't have enough to buy " + equity.getName() + " .");
         }

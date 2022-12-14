@@ -1,6 +1,5 @@
 public class TransactionMenu implements IMenu
 {
-	public final IDataIO dataIO = new FileIO();
 	private String nameOfFunction;
 	private TransactionManager transactionManager = null;
 
@@ -105,7 +104,7 @@ public class TransactionMenu implements IMenu
 					try
 					{
 						int stockIndex = Integer.parseInt(stockInput);
-						selectedEquity = application.getEquities().get(stockIndex);
+						selectedEquity = application.getEquities().get(stockIndex-1);
 					}
 					catch (NumberFormatException e)
 					{
