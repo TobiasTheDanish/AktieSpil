@@ -60,27 +60,31 @@ public class FileIO implements IDataIO
                 IEquity equity;
                 switch (dataSplit[0].trim())
                 {
-                    case "PennyStock" ->
+                    case "PennyStock" :
                     {
                         equity = new PennyStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
+                        break;
                     }
-                    case "SmallCapStock" ->
+                    case "SmallCapStock" :
                     {
                         equity = new SmallCapStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
+                        break;
                     }
-                    case "MediumCapStock" ->
+                    case "MediumCapStock" :
                     {
                         equity = new MediumCapStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
+                        break;
                     }
-                    case "LargeCapStock" ->
+                    case "LargeCapStock" :
                     {
                         equity = new LargeCapStock(range, riskOfBankruptcy, name, price);
                         equities.add(equity);
+                        break;
                     }
-                    default ->
+                    default :
                     {
                         System.err.println("This should never happen!");
                         throw new RuntimeException("Error when loading stock data! A stock type is not represented in switch statement.");

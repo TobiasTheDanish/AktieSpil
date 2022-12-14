@@ -19,7 +19,6 @@ public class SimulationManager
         textUI.displayMessage("Your current portfolio is worth: " + user.getPortfolio().calculateTotalEquities());
         textUI.displayMessage("And your current balance is: " + user.getPortfolio().getBalance());
         textUI.displayMessage("Goal: " + user.getPortfolio().calculateTotalValue() + " / " + GameManager.getWinCondition());
-
     }
 
     public void simulateDay(Application application)
@@ -95,7 +94,6 @@ public class SimulationManager
             return equity;
         }
     }
-
 
     public void simulateStock(IEquity equity){
 
