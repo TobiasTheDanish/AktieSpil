@@ -1,73 +1,177 @@
-public class TransactionMenu implements IMenu{
-    public final IDataIO dataIO = new FileIO();
-    @Override
-    public void enter(Application application) {
-        buyMenu();
-    }
+public class TransactionMenu implements IMenu
+{
+	public final IDataIO dataIO = new FileIO();
+	private String nameOfFunction;
+	private TransactionManager transactionManager = null;
 
-    @Override
-    public void exit(Application application) {
+	public TransactionMenu(String nameOfFunction)
+	{
+		this.nameOfFunction = nameOfFunction;
+	}
 
-    }
+	@Override
+	public void enter(Application application)
+	{
+		transactionManager = new TransactionManager(application);
+		TextUI textUI = application.ui.asTextUI();
+		switch (nameOfFunction)
+		{
+			case "makeTransaction":
+			{
+				makeTransaction(application);
+				break;
+			}
+			case "displayPrevTransactions":
+			{
+				displayPrevTransactions(application);
+				break;
+			}
+			default:
+				//If none of the above is reached, prompt the user to let them know.
+				textUI.getInput("That was not a valid action. Press enter to try again.");
+				textUI.clearConsole();
+				break;
+		}
+	}
 
-    public void buyMenu(){
-      asTextUI().clearConsole();
-      asTextUI().displayMessage("Welcome to the Buy Menu");
-      asTextUI().displayMessage("");
-      asTextUI().displayMessage("1) View all stocks\n" +
-                                      "2) Go back");
-      String input = asTextUI().getInputOnLine("What would you like to do: ");
-      String buyInput;
-      String buyAmount = "0";
-      switch (input){
-          case "1":{
-              asTextUI().clearConsole();
-              //ToDo Print out all stocks available.
-             // asTextUI().displayMessage();
-              String stockInput = asTextUI().getInput("Which stock would you like to buy?");
+	@Override
+	public void exit(Application application)
+	{
+		application.menuStack.pop();
+	}
 
-              //ToDo make a case for every single stock.
-              // (Just Copy/Paste and change the name, so the name/price is right)
-              switch (stockInput){
-                  case "1":{
-                      asTextUI().clearConsole();
-                      do {
+	/*public void buyMenu(Application application)
+	{
 
-                      asTextUI().displayMessage("1) Buy stock\n" +
-                                                      "2) Go back");
-                       buyInput = asTextUI().getInput("What would you like to do?");
-                      } while (!buyInput.trim().equals("1") && !buyInput.trim().equals("2"));
+	  // textUI.displayMessage();
+	  //ToDo make a case for every single stock. DONT DO THIS!!!!!
+	  // (Just Copy/Paste and change the name, so the name/price is right) NO PLEASE DONT :(
+	  switch (stockInput){
+		  case "1":{
+			  textUI.clearConsole();
+			  do {
 
-                      if (buyInput.trim().equals("1")){
-                          asTextUI().clearConsole();
+			  textUI.displayMessage("1) Buy stock\n" +
+											  "2) Go back");
+			   buyInput = textUI.getInput("What would you like to do?");
+			  } while (!buyInput.trim().equals("1") && !buyInput.trim().equals("2"));
 
-                          //ToDo Måske en TryCatch eller lign. der sørger for at buyAmount KUN tager imod tal.
-                          asTextUI().displayMessage("How many stocks of " + "" + " would you like to purchase?");
-                          buyAmount = asTextUI().getInputOnLine("Quantity: ");
+			  if (buyInput.trim().equals("1")){
+				  textUI.clearConsole();
 
-
-                          //##################
-                          //Aner ikke hvorfor det her ikke virker????
-                         // int amount = Interger.parseInt(buyAmount);
-
-
-                          //ToDo call the TransactionManager.makeTransaction(stockname, buyAmount, user)
-                      }
-                  }
-                  case "2":{
-                      //ToDo Copy Case 1 and rewrite name/price so i matches the next stock
-
-                  }
-              }
-          }
-          case "2":{
-              asTextUI().clearConsole();
-          //ToDo Go back to MainMenu
-          }
-      }
+				  //ToDo Måske en TryCatch eller lign. der sørger for at buyAmount KUN tager imod tal.
+				  textUI.displayMessage("How many stocks of " + "" + " would you like to purchase?");
+				  buyAmount = textUI.getInputOnLine("Quantity: ");
 
 
-    }
+				  int amount = Integer.parseInt(buyAmount);
 
 
+				  transactionManager.makeTransaction(stockname, buyAmount, application.getCurrentUser())
+			  }
+		  }
+		  case "2":{
+			  //ToDo Copy Case 1 and rewrite name/price so i matches the next stock... NOOOO PLEEEEASE ;(((
+
+		  }
+	  }
+	}
+	}*/
+
+	private void makeTransaction(Application application) {
+		// evt en switch case her med en lille menu ligesom i mainmenu
+		// menuen kunne have mulighederne: 1: show list of available stocks press q to exit menu
+		TextUI textUI = application.ui.asTextUI();
+		textUI.clearConsole();
+		textUI.displayMessage("Welcome to the Buy Menu");
+		textUI.displayMessage("");
+		textUI.displayMessage("1) View all stocks\n" +
+									  "2) Go back");
+		String input = textUI.getInputOnLine("What would you like to do: ");
+		switch (input)
+		{
+			case "1":
+			{
+				textUI.clearConsole();
+				//ToDo Print out all stocks available.
+				textUI.printListOfEquities(application.getEquities());
+
+				IEquity selectedEquity = null;
+
+				while (selectedEquity == null)
+				{
+					String stockInput = textUI.getInput("Enter number of the stock would you like to buy?");
+
+					try
+					{
+						int stockIndex = Integer.parseInt(stockInput);
+						selectedEquity = application.getEquities().get(stockIndex);
+					}
+					catch (NumberFormatException e)
+					{
+						textUI.displayMessage("That was not a number. Try again.");
+					}
+					catch (IndexOutOfBoundsException e)
+					{
+						textUI.displayMessage("That number was too big or too small. Try again.");
+					}
+				}
+
+				textUI.clearConsole();
+				String buyInput;
+				do
+				{
+					textUI.displayMessage("You selected " + selectedEquity.getName() + ", what would you like to do?");
+					textUI.displayMessage("1) Buy stock\n" +
+												  "2) Go back");
+					buyInput = textUI.getInput("What would you like to do?");
+				} while (!buyInput.trim().equals("1") && !buyInput.trim().equals("2"));
+
+				if (buyInput.trim().equals("1"))
+				{
+					textUI.clearConsole();
+
+					while (true)
+					{
+						textUI.displayMessage("How many stocks of " + "" + " would you like to purchase?");
+						String amountInput = textUI.getInputOnLine("Quantity: ");
+
+						try
+						{
+							int buyAmount = Integer.parseInt(amountInput);
+
+							if (buyAmount <= 0)
+							{
+								textUI.displayMessage("The amount cannot be negative or 0! Try again.");
+								continue;
+							}
+
+							transactionManager.makeTransaction(selectedEquity, buyAmount, application.getCurrentUser());
+							break;
+						}
+						catch (NumberFormatException e)
+						{
+							textUI.displayMessage("That was not a number. Try again.");
+						}
+					}
+
+					break;
+				}
+				else {
+					exit(application);
+				}
+
+			}
+			case "2":{
+				textUI.clearConsole();
+				exit(application);
+				break;
+			}
+		}
+
+	}
+	public void displayPrevTransactions(Application application) {
+		// evt en switch case her med en lille menu
+		// evt 1: display previous transactions press q to exit menu og en default som de andre
+	}
 }

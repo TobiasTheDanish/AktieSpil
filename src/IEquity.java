@@ -6,4 +6,11 @@ public interface IEquity {
 
     void setPrice(float price);
 
+    Range getRange();
+
+    float getRiskOfBankruptcy();
+
+    boolean isBankrupt();
+
+    void setIsBankrupt(boolean isBankrupt);
 }
