@@ -40,7 +40,6 @@ public class TransactionMenu implements IMenu
 		application.menuStack.pop();
 	}
 
-
 	private void makeTransaction(Application application) {
 		// evt en switch case her med en lille menu ligesom i mainmenu
 		// menuen kunne have mulighederne: 1: show list of available stocks press q to exit menu
@@ -68,7 +67,7 @@ public class TransactionMenu implements IMenu
 					try
 					{
 						int stockIndex = Integer.parseInt(stockInput);
-						selectedEquity = application.getEquities().get(stockIndex);
+						selectedEquity = application.getEquities().get(stockIndex-1);
 					}
 					catch (NumberFormatException e)
 					{
@@ -96,7 +95,7 @@ public class TransactionMenu implements IMenu
 
 					while (true)
 					{
-						textUI.displayMessage("How many stocks of " + "" + " would you like to purchase?");
+						textUI.displayMessage("How many stocks of " + selectedEquity.getName() + " would you like to purchase?");
 						String amountInput = textUI.getInputOnLine("Quantity: ");
 
 						try
@@ -136,5 +135,6 @@ public class TransactionMenu implements IMenu
 	public void displayPrevTransactions(Application application) {
 		// evt en switch case her med en lille menu
 		// evt 1: display previous transactions press q to exit menu og en default som de andre
+		exit(application);
 	}
 }
