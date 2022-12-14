@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Portfolio {
 
-    ArrayList<IEquity> equities;
+    private ArrayList<IEquity> equities;
     Map<String, Integer> equityAmount;
     Map<String, Float> purchasePrices;
     private float balance;
@@ -15,8 +15,6 @@ public class Portfolio {
     }
 
     public void addToPortfolio(IEquity equity, int amount) {
-        equities.add(equity);
-
         if (purchasePrices.containsKey(equity.getName())) {
             float newAveragePrice = calcNewAveragePrice(equity.getName(), equity.getPrice(), amount);
             purchasePrices.replace(equity.getName(), newAveragePrice);
@@ -24,6 +22,7 @@ public class Portfolio {
             equityAmount.replace(equity.getName(), calcNewTotalAmount(equity.getName(), amount));
         }
         else {
+            equities.add(equity);
             purchasePrices.put(equity.getName(), equity.getPrice());
             equityAmount.put(equity.getName(), amount);
         }
@@ -34,7 +33,7 @@ public class Portfolio {
 
         if (amount > equityAmount.get(equityName))
         {
-            throw new IndexOutOfBoundsException("The amount given to removeFromPortfolio(), was bigger than the amount int the portfolio");
+            throw new IndexOutOfBoundsException("The amount given to removeFromPortfolio(), was bigger than the amount in the portfolio");
         }
         else if (amount == equityAmount.get(equityName))
         {
@@ -48,8 +47,6 @@ public class Portfolio {
             int newAmount = oldAmount-amount;
             equityAmount.replace(equityName, newAmount);
         }
-
-
     }
 
     public float calculateTotalValue(){
@@ -59,9 +56,21 @@ public class Portfolio {
     public float calculateTotalEquities(){
         float sum = 0;
         for (IEquity equity : equities) {
-            sum += (purchasePrices.get(equity.getName()) * equityAmount.get(equity.getName()));
+            sum += equity.getPrice() * equityAmount.get(equity.getName());
         }
         return sum;
+    }
+
+    public float calculateTotalReturn() {
+        float roi = 0.0f;
+        for (IEquity equity : equities) {
+            roi += calculateStockReturn(equity);
+        }
+        return roi;
+    }
+
+    public float calculateStockReturn(IEquity equity){
+        return (equity.getPrice() - getAveragePrice(equity)) * getAmountOfEquity(equity);
     }
 
     public float getBalance() {
@@ -70,6 +79,16 @@ public class Portfolio {
 
     public void setBalance(float balance) {
         this.balance = balance;
+    }
+
+    public ArrayList<IEquity> getEquities()
+    {
+        return equities;
+    }
+
+    public void setEquities(ArrayList<IEquity> equities)
+    {
+        this.equities = equities;
     }
 
     public float getAveragePrice(IEquity equity)
