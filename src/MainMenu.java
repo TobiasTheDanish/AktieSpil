@@ -48,12 +48,12 @@ public class MainMenu implements IMenu
 
     private void displayPortfolio(Application application) {
         TextUI textUI = application.ui.asTextUI();
-
+       TransactionManager transactionManager = new TransactionManager(application);
         textUI.clearConsole();
         textUI.printListOfEquities(application.getCurrentUser().getPortfolio().equities);
         IEquity selectedEquity = null;
         String sellInput = null;
-        switch (sellInput){
+
         while (selectedEquity == null)
         {
             String stockInput = textUI.getInput("What stock would you like to look at?");
@@ -61,7 +61,7 @@ public class MainMenu implements IMenu
             try
             {
                 int stockIndex = Integer.parseInt(stockInput);
-                selectedEquity = application.getEquities().get(stockIndex-1);
+                selectedEquity = application.getCurrentUser().getPortfolio().equities.get(stockIndex-1);
             }
             catch (NumberFormatException e)
             {
@@ -106,12 +106,7 @@ public class MainMenu implements IMenu
         }
 
     }
-        case "2": {
-            textUI.clearConsole();
-        }
-                exit(application);
-                break;
-        }
+
 }
 
 
