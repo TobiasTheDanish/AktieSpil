@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Documentation">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Updated to use the stack functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PortfolioMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670836883511</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated to use the stack functionality">
+      <created>1671029696771</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671029696771</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,7 +122,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documentation" />
+    <MESSAGE value="Updated to use the stack functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated to use the stack functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
