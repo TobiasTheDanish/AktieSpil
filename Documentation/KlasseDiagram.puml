@@ -80,10 +80,12 @@ class TransactionManager {
 }
 
 class GameManager {
-    + void chooseWinLoseCondition()
+    - float winCondition;
+    - float loseCondition;
+    + void chooseWinLoseCondition(float winCon, float loseCon)
     + void chooseGameLength()
-    + boolean hasPlayerWon()
-    + boolean hasPlayerLost()
+    + boolean hasPlayerWon(User user)
+    + boolean hasPlayerLost(User user)
 }
 
 class SimulationManager {
