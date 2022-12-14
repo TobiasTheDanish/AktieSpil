@@ -16,16 +16,26 @@ public class SimulationManager
     {
         IUI textUI = application.ui.asTextUI();
         ArrayList<IEquity> equities = application.getEquities();
+        textUI.displayMessage("Simulating day " + day);
 
-        for (IEquity equity : equities)
+        for (int i = 0; i < equities.size(); i++)
         {
-            int index = equities.indexOf(equity);
-            equities.set(index, simulateEquity(equity));
+            StringBuilder string = new StringBuilder(140);
+            try {
+                int current = i;
+                Thread.sleep(500);
+                string.append('\r').append(++current).append("/").append(equities.size()).append(" equities simulated.");
+                textUI.displayMessageOnLine(string.toString());
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+
+            equities.set(i, simulateEquity(equities.get(i)));
         }
-        textUI.displayMessage("Day: " + day);
-        textUI.displayMessage("Your current portfolio is worth: " + application.getCurrentUser().getPortfolio().calculateTotalEquities());
+        textUI.displayMessage("\nYour current portfolio is worth: " + application.getCurrentUser().getPortfolio().calculateTotalEquities());
         textUI.displayMessage("And your current balance is: " + application.getCurrentUser().getPortfolio().getBalance());
         textUI.displayMessage("Goal: " + application.getCurrentUser().getPortfolio().calculateTotalValue() + " / " + GameManager.getWinCondition());
+        textUI.getInput("Press 'ENTER' to continue");
     }
 
     private IEquity simulateEquity(IEquity equity)
@@ -83,6 +93,8 @@ public class SimulationManager
                     (int) rangeMedian + increaseRange) - increaseRange / 2) / 100;
             float increase = equity.getPrice() * increasePercentage;
             equity.setPrice(equity.getPrice() + increase);
+
+
 
             return equity;
         }

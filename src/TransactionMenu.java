@@ -81,7 +81,7 @@ public class TransactionMenu implements IMenu
 				String buyInput;
 				do
 				{
-					textUI.displayMessage("You selected " + selectedEquity.getName() + ", what would you like to do?");
+					textUI.displayMessage("You selected " + selectedEquity.getName());
 					textUI.displayMessage("1) Buy stock\n" +
 												  "2) Go back");
 					buyInput = textUI.getInput("What would you like to do?");
@@ -94,7 +94,10 @@ public class TransactionMenu implements IMenu
 					while (true)
 					{
 						textUI.displayMessage("How many stocks of " + selectedEquity.getName() + " would you like to purchase?");
+						textUI.displayMessage("Press 'Q' to return");
 						String amountInput = textUI.getInputOnLine("Quantity: ");
+
+						if (amountInput.equalsIgnoreCase("Q")) break;
 
 						try
 						{
@@ -118,7 +121,7 @@ public class TransactionMenu implements IMenu
 					break;
 				}
 				else {
-					exit(application);
+					break;
 				}
 
 			}
