@@ -5,9 +5,9 @@ public class Portfolio {
 
     ArrayList<IEquity> equities;
 
-    Dictionary<String, Integer> equityAmount;
+    Dictionary<String, ArrayList<Integer>> equityAmount;
 
-    Dictionary<String, Integer> purchasePrices;
+    Dictionary<String, ArrayList<Integer>> purchasePrices;
     private float balance;
 
     public Portfolio(ArrayList<IEquity> equities, float balance) {
@@ -16,6 +16,15 @@ public class Portfolio {
     }
 
     public float calculateTotalValue(){
+        float sum = 0;
+        for (IEquity iEquity:equities) {
+            sum += iEquity.getPrice();
+        }
+        sum += balance;
+        return sum;
+    }
+
+    public float calculateTotalEquities(){
         float sum = 0;
         for (IEquity iEquity:equities) {
             sum += iEquity.getPrice();

@@ -1,23 +1,26 @@
 public class TransactionManager {
 
+    private Application application;
 
-
-    public void makeTransaction(IEquity equity, int amount, User user){
-
-      float userBalance = user.getPortfolio().getBalance();
-      float stockPrice = equity.getPrice() * amount;
-
-
-      if (userBalance >= stockPrice){
-          userBalance -= stockPrice;
-          //########################################
-          //Kan ikke få lov at bruge TextUI herinde!
-          //ToDo use TextUI.displayMessage("You have successfully bought " + equity.getName() + " .");
-          }
-      else {
-          //ToDo use TextUI.displayMessage("You don't have enough to buy " + equity.getName() + " .");
-          //########################################
-      }
+    public TransactionManager(Application application) {
+        this.application = application;
     }
 
+    public void makeTransaction(IEquity equity, int amount, User user) {
+        TextUI textUI = application.ui.asTextUI();
+
+        float userBalance = user.getPortfolio().getBalance();
+        float stockPrice = equity.getPrice() * amount;
+
+
+        if (userBalance >= stockPrice) {
+            userBalance -= stockPrice;
+            user.getPortfolio().setBalance(userBalance);
+            textUI.displayMessage("You have successfully bought " + amount + " " + equity.getName() + " for " + equity.getPrice());
+            textUI.getInput("Press ENTER to continue.");
+        } else {
+            textUI.displayMessage("You don't have enough to buy " + equity.getName() + " .");
+            textUI.getInput("Press ENTER to continue.");
+        }
+    }
 }

@@ -89,7 +89,7 @@ class GameManager {
 }
 
 class SimulationManager {
-    + void simulateDay()
+    + void simulateDay(Application application)
 }
 
 class User {
