@@ -8,7 +8,7 @@ String nameOfFunction;
 
     private static void makeTransaction() {
 // evt en switch case her med en lille menu ligesom i mainmenu
-        // menuen kunne have mulighederne: 1: show list of available stocks press q to exit menu 
+        // menuen kunne have mulighederne: 1: show list of available stocks press q to exit menu
 
     }
     public void displayPrevTransactions () {
