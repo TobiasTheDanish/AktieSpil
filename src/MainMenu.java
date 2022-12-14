@@ -30,7 +30,7 @@ public class MainMenu implements IMenu
                 displayStocks();
                 break;
             } case "2": {
-                displayPortfolio();
+                displayPortfolio(application);
                 break;
             } case "3": {
                 application.menuStack.push(new TransactionMenu("displayPrevTransactions"));
@@ -48,22 +48,26 @@ public class MainMenu implements IMenu
     }
 
 
-    private void displayPortfolio() {
+    private void displayPortfolio(Application application) {
+        TextUI textUI = application.ui.asTextUI();
+        String input;
+        textUI.clearConsole();
+        textUI.printListOfEquities(application.getCurrentUser().getPortfolio().equities);
+        textUI.displayMessage("");
 
     }
 
     private void displayStocks() {
 
+
     }
 
-    public void enter(Application application)
-    {
+    public void enter(Application application) {
         displayUserOptions(application);
     }
 
     @Override
-    public void exit (Application application)
-    {
+    public void exit (Application application) {
         application.menuStack.pop();
     }
 
