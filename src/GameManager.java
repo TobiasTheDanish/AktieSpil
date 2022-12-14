@@ -12,20 +12,11 @@ public class GameManager {
     }
 
     public boolean hasPlayerWon(User user){
-        if(user.getPortfolio().calculateTotalValue() >= winCondition){
-            return true;
-        } else {
-            return false;
-        }
+        return user.getPortfolio().calculateTotalValue() >= winCondition;
     }
 
     public boolean hasPlayerLost(User user){
-
-        if(user.getPortfolio().calculateTotalValue() <= loseCondition){
-            return true;
-        } else {
-            return false;
-        }
+        return user.getPortfolio().calculateTotalValue() <= loseCondition;
     }
 
     public static float getWinCondition() {
