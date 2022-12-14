@@ -66,6 +66,9 @@ class StartMenu implements IMenu {
 }
 
 class MainMenu implements IMenu {
+    - void displayUserOptions(Application application)
+    - void displayPortfolio(Application application)
+    - void displayStocks(Application application)
     + void enter()
     + void exit()
 }
@@ -80,10 +83,12 @@ class TransactionManager {
 }
 
 class GameManager {
-    + void chooseWinLoseCondition()
+    - float winCondition;
+    - float loseCondition;
+    + void chooseWinLoseCondition(float winCon, float loseCon)
     + void chooseGameLength()
-    + boolean hasPlayerWon()
-    + boolean hasPlayerLost()
+    + boolean hasPlayerWon(User user)
+    + boolean hasPlayerLost(User user)
 }
 
 class SimulationManager {
