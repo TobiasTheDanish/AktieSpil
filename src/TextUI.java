@@ -34,7 +34,7 @@ public class TextUI implements IUI {
             int amount = user.getPortfolio().equityAmount.get(equities.get(i).getName());
             float averagePrice = user.getPortfolio().getAveragePrice(equities.get(i));
             float stockReturn = (equities.get(i).getPrice() - averagePrice) * amount;
-            displayMessage((i+1)+") " + name + " | Average purchase price: " + averagePrice + " | Amount: " + amount + " | Stock return: " + stockReturn);
+            displayMessage((i+1)+") " + name + " | Average purchase price: " + averagePrice + "$" + " | Amount: " + amount + " | Stock return: " + stockReturn + "%");
         }
     }
 
