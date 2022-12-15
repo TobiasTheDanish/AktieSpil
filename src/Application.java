@@ -8,13 +8,10 @@ public class Application {
     public final IDataIO dataIO = new FileIO();
     private ArrayList<IEquity> equities = new ArrayList<>();
     private User currentUser = null;
+    private GameManager gameManager = null;
 
     public void run() {
         equities = dataIO.readEquityData("src/Data/Stocks.csv");
-
-        //SimulationManager simulationManager = new SimulationManager();
-        //simulationManager.simulateDay(this);
-
 
         menuStack.push(new MainMenu());
         menuStack.push(new StartMenu());
@@ -37,5 +34,18 @@ public class Application {
 
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
+    }
+
+    public GameManager getGameManager() {
+        return gameManager;
+    }
+
+    public void setGameManager(GameManager gameManager)
+    {
+        if (this.gameManager != null)
+        {
+            throw new RuntimeException("The GameManager instance of Application, cannot be set more than once!\nThis would overwrite the win and loss conditions.");
+        }
+        this.gameManager = gameManager;
     }
 }

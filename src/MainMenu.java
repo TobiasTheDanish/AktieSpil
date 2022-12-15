@@ -1,6 +1,5 @@
 public class MainMenu implements IMenu
 {
-
     private void displayUserOptions(Application application) {
         TextUI textUI = application.ui.asTextUI();
         String input;    //do makes sure that the loop always runs at least once.
