@@ -46,26 +46,29 @@ public class SearchMenu implements IMenu
         textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
         String buyInput = textUI.getInput("Press" + Colors.ANSI_CYAN + " 'B' " + Colors.ANSI_RESET + "to buy stock or press"+ Colors.ANSI_CYAN + " 'ENTER' " + Colors.ANSI_RESET +"to go back: ");
         int amount = 0;
-        if (buyInput.trim().equalsIgnoreCase("B")){
-            try
-            {
-                textUI.displayMessage("How many stocks would you like to buy for " + selectedEquity.getPrice() + " each.");
-                amount = Integer.parseInt(textUI.getInputOnLine("Quantity: "));
-                if(transactionManager.makeTransaction(selectedEquity, amount, application.getCurrentUser())){
-                    exit(application);
-                    return;
+        if (buyInput.trim().equalsIgnoreCase("B")) {
+            while (true) {
+                try {
+
+                    textUI.displayMessage("How many stocks would you like to buy for " + selectedEquity.getPrice() + " each.\nPress Q to go back.");
+                    String amountInput = textUI.getInput("Quantity: ");
+                    if (amountInput.equalsIgnoreCase("Q")) {
+
+                        return;
+                    }
+                    amount = Integer.parseInt(amountInput);
+
+                    if (transactionManager.makeTransaction(selectedEquity, amount, application.getCurrentUser())) {
+                        exit(application);
+                        break;
+                    }
+                } catch (NumberFormatException e) {
+                    textUI.displayMessage("That was not a number. Try again.");
+                } catch (IndexOutOfBoundsException e) {
+                    textUI.displayMessage("That number was too big or too small. Try again.");
                 }
             }
-            catch (NumberFormatException e)
-            {
-                textUI.displayMessage("That was not a number. Try again.");
-            }
-            catch (IndexOutOfBoundsException e)
-            {
-                textUI.displayMessage("That number was too big or too small. Try again.");
-            }
         }
-
     }
 
     @Override
