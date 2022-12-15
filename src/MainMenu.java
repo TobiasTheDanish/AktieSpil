@@ -107,12 +107,6 @@ public class MainMenu implements IMenu
 
 }
 
-
-
-
-
-
-
     private void displayStocks(Application application) {
         TransactionManager transactionManager = new TransactionManager(application);
         TextUI textUI = application.ui.asTextUI();
