@@ -20,7 +20,7 @@ public class SearchMenu implements IMenu
         while (selectedEquity == null) {
 
             textUI.displayMessage("Enter the number of the stock you would like to get a closer look at");
-            String input = textUI.getInputOnLine("or press" + Colors.ANSI_CYAN + " Q " + Colors.ANSI_RESET + "to go back: ");
+            String input = textUI.getInputOnLine("or press" + Colors.ANSI_CYAN + " 'Q' " + Colors.ANSI_RESET + "to go back: ");
             if (input.trim().equalsIgnoreCase("Q")) {
                 exit(application);
                 return;

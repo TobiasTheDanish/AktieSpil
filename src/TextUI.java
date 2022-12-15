@@ -31,10 +31,12 @@ public class TextUI implements IUI {
         for (int i = 0; i < equities.size(); i++)
         {
             String name = equities.get(i).getName();
-            int amount = user.getPortfolio().equityAmount.get(equities.get(i).getName());
+            int amount = user.getPortfolio().getAmountOfEquity(equities.get(i));
             float averagePrice = user.getPortfolio().getAveragePrice(equities.get(i));
-            float stockReturn = (equities.get(i).getPrice() - averagePrice) * amount;
-            displayMessage((i+1)+") " + name + " | Average purchase price: " + averagePrice + "$" + " | Amount: " + amount + " | Stock return: " + stockReturn + "%");
+            float investment = averagePrice * amount;
+            float stockReturn = user.getPortfolio().calculateStockReturn(equities.get(i));
+            float stockReturnPercentage = (stockReturn / investment) * 100;
+            displayMessage((i+1)+") " + name + " | Average purchase price: " + averagePrice + "$" + " | Amount: " + amount + " | Stock return: " + stockReturnPercentage + "% / " + stockReturn + "$");
         }
     }
 

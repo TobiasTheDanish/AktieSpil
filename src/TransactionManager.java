@@ -21,12 +21,12 @@ public class TransactionManager {
             user.getPortfolio().addToPortfolio(equity, amount);
             textUI.displayMessage("You have successfully bought " + amount + " " + equity.getName() + " for " + equity.getPrice()*amount + "$.");
             textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
-            textUI.getInput("Press" + Colors.ANSI_CYAN + " ENTER " + Colors.ANSI_RESET + "to continue.");
+            textUI.getInput("Press" + Colors.ANSI_CYAN + " 'ENTER' " + Colors.ANSI_RESET + "to continue.");
             return true;
 
         } else {
             textUI.displayMessage("You don't have enough to buy " + amount + " " + equity.getName() + ".");
-            textUI.getInput("Press" + Colors.ANSI_CYAN + " ENTER " + Colors.ANSI_RESET + "to continue.");
+            textUI.getInput("Press" + Colors.ANSI_CYAN + " 'ENTER' " + Colors.ANSI_RESET + "to continue.");
             return false;
         }
     }
@@ -42,6 +42,6 @@ public class TransactionManager {
         user.getPortfolio().setBalance(userBalance);
         user.getPortfolio().removeFromPortfolio(equity,amount);
         textUI.displayMessage("You have successfully sold " + amount + " " + equity.getName() + " for " + equity.getPrice()*amount + "$ (Each: " + equity.getPrice() + "$)");
-        textUI.getInput("Press ENTER to continue.");
+        textUI.getInput("Press 'ENTER' to continue.");
     }
 }
