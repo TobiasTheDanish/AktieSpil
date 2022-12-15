@@ -11,7 +11,7 @@ public class PortfolioMenu implements IMenu
         TextUI textUI = application.ui.asTextUI();
         TransactionManager transactionManager = new TransactionManager(application);
         textUI.clearConsole();
-        textUI.printListOfEquities(application.getCurrentUser().getPortfolio().equities);
+        textUI.printListOfEquities(application.getCurrentUser().getPortfolio().getEquities());
         IEquity selectedEquity = null;
         String sellInput = null;
 
@@ -28,7 +28,7 @@ public class PortfolioMenu implements IMenu
             try
             {
                 int stockIndex = Integer.parseInt(stockInput);
-                selectedEquity = application.getCurrentUser().getPortfolio().equities.get(stockIndex - 1);
+                selectedEquity = application.getCurrentUser().getPortfolio().getEquities().get(stockIndex - 1);
             }
             catch (NumberFormatException e)
             {
