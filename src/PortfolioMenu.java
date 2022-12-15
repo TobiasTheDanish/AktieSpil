@@ -51,7 +51,13 @@ public class PortfolioMenu implements IMenu
             textUI.clearConsole();
 
             while (true) {
-                textUI.displayMessage("How many stocks of " + selectedEquity.getName() + " would you like to sell?");
+                String goBack = textUI.getInput("How many stocks of " + selectedEquity.getName() + " would you like to sell?\nPress q to go back.");
+                if (goBack.equalsIgnoreCase("Q"))
+                {
+
+                    break;
+                }
+
                 String amountInput = textUI.getInputOnLine("Quantity: ");
 
                 try {
