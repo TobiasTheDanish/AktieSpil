@@ -8,16 +8,14 @@ public class PortfolioMenu implements IMenu {
         TextUI textUI = application.ui.asTextUI();
         TransactionManager transactionManager = new TransactionManager(application);
         while (true) {
-        textUI.clearConsole();
-        textUI.printListOfEquitiesPlusAveragePrice(application.getCurrentUser().getPortfolio().getEquities(), application.getCurrentUser());
-        IEquity selectedEquity = null;
-        String sellInput = null;
+            textUI.clearConsole();
+            textUI.printListOfEquitiesPlusAveragePrice(application.getCurrentUser().getPortfolio().getEquities(), application.getCurrentUser());
+            IEquity selectedEquity = null;
+            String sellInput = null;
+
 
             while (selectedEquity == null) {
-                while (selectedEquity == null) {
-                String stockInput = textUI.getInput("What stock would you like to look at?\nPress 'Q' to go back.");
-
-
+            String stockInput = textUI.getInput("What stock would you like to look at?\nPress 'Q' to go back.");
 
                     if (stockInput.equalsIgnoreCase("Q")) {
                         exit(application);

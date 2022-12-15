@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Removed display previous transaction from main menu" />
+    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Changes to how the simulation of stock values work. Including displaying info about the users portfolio">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PortfolioMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioMenu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,14 +115,7 @@
       <option name="project" value="LOCAL" />
       <updated>1671059697924</updated>
     </task>
-    <task id="LOCAL-00005" summary="Removed display previous transaction from main menu">
-      <created>1671127955717</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1671127955717</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,7 +134,6 @@
     <MESSAGE value="Documentation" />
     <MESSAGE value="Updated to use the stack functionality" />
     <MESSAGE value="Changes to how the simulation of stock values work. Including displaying info about the users portfolio" />
-    <MESSAGE value="Removed display previous transaction from main menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed display previous transaction from main menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes to how the simulation of stock values work. Including displaying info about the users portfolio" />
   </component>
 </project>
