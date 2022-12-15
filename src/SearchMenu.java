@@ -36,7 +36,6 @@ public class SearchMenu implements IMenu
             }
         }
 
-
         textUI.clearConsole();
         textUI.displayMessage("Name: " + selectedEquity.getName() + ".");
         textUI.displayMessage("Price: " + selectedEquity.getPrice() + ".");
