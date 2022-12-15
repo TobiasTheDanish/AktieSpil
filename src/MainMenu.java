@@ -12,14 +12,14 @@ public class MainMenu implements IMenu
         textUI.displayMessage("1)   View all stocks.\n" +
                                    "2)   View your portfolio.\n" +
                                    "3)   View your previous transactions.\n" +
-                                   "4)   Simulate to next day.\n\n");
+                                   "4)   Simulate to next day.\n");
         textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
         input = textUI.getInput("Enter your selection, or press" + Colors.ANSI_CYAN + " Q " + Colors.ANSI_RESET + "to log out:");
         //Switch statement to perform different logic based on input
         switch (input.trim()) {
             case "q":
             case "Q":
-                //If input is "Q" or "q" break out of the switch statement
+                //If input is "Q" or "q" exit out of the main menu. This results in the user logging out.
                 exit(application);
                 break;
             case "1": {
