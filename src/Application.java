@@ -47,5 +47,12 @@ public class Application {
             throw new RuntimeException("The GameManager instance of Application, cannot be set more than once!\nThis would overwrite the win and loss conditions.");
         }
         this.gameManager = gameManager;
+
+        getCurrentUser().getPortfolio().setBalance(gameManager.getStartBalance());
+
+        ui.asTextUI().displayMessage("Start capital, win condition and loss condition, have been set successfully.\n" +
+                                          "-\tStart capital: " + gameManager.getStartBalance() + "\n" +
+                                          "-\tWin condition: " + gameManager.getWinCondition() + "\n" +
+                                          "-\tLoss condition: " + gameManager.getLossCondition());
     }
 }

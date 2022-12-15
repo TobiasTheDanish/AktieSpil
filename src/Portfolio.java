@@ -5,11 +5,10 @@ public class Portfolio {
     private ArrayList<IEquity> equities;
     Map<String, Integer> equityAmount;
     Map<String, Float> purchasePrices;
-    private float balance;
+    private float balance = 0.0f;
 
-    public Portfolio(ArrayList<IEquity> equities, float balance) {
+    public Portfolio(ArrayList<IEquity> equities) {
         this.equities = equities;
-        this.balance = balance;
         this.equityAmount = new HashMap<>();
         this.purchasePrices = new HashMap<>();
     }
@@ -84,11 +83,6 @@ public class Portfolio {
     public ArrayList<IEquity> getEquities()
     {
         return equities;
-    }
-
-    public void setEquities(ArrayList<IEquity> equities)
-    {
-        this.equities = equities;
     }
 
     public float getAveragePrice(IEquity equity)

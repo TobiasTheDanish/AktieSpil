@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Changes to how the simulation of stock values work. Including displaying info about the users portfolio">
-      <change afterPath="$PROJECT_DIR$/src/GameSetupMenu.java" afterDir="false" />
+    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Start of GameSetupMenu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameSetupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameSetupMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Portfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671128341555</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Start of GameSetupMenu">
+      <created>1671129368289</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671129368289</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,6 +154,7 @@
     <MESSAGE value="Updated to use the stack functionality" />
     <MESSAGE value="Changes to how the simulation of stock values work. Including displaying info about the users portfolio" />
     <MESSAGE value="Minor refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor refactor" />
+    <MESSAGE value="Start of GameSetupMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start of GameSetupMenu" />
   </component>
 </project>

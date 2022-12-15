@@ -38,6 +38,24 @@ public class SimulationManager
             }
         }
 
+        if (application.getGameManager().hasPlayerLost(application.getCurrentUser()))
+        {
+            textUI.displayMessage("YOU LOST!!!");
+            while (!application.menuStack.isEmpty())
+            {
+                application.menuStack.pop();
+            }
+        }
+        else if (application.getGameManager().hasPlayerWon(application.getCurrentUser()))
+        {
+            textUI.displayMessage("YOU WON!");
+
+            while (!application.menuStack.isEmpty())
+            {
+                application.menuStack.pop();
+            }
+        }
+
         textUI.displayMessage("\nYour portfolio is now worth: " + application.getCurrentUser().getPortfolio().calculateTotalEquities() + "$");
         textUI.displayMessage("It grew by: " + (application.getCurrentUser().getPortfolio().calculateTotalEquities() - oldPortfolioValue) + "$ over night.");
         textUI.displayMessage("Goal: " + application.getCurrentUser().getPortfolio().calculateTotalValue() + " / " + application.getGameManager().getWinCondition());

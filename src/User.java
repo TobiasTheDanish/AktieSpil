@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class User {
 
-    private String username;
-    private String password;
-    private Portfolio portfolio;
+    private final String username;
+    private final String password;
+    private final Portfolio portfolio;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.portfolio = new Portfolio(new ArrayList<>(),100000);
+        this.portfolio = new Portfolio(new ArrayList<>());
     }
 
     public String getUsername() {
