@@ -44,7 +44,7 @@ public class StartMenu implements IMenu{
                 while (!checkCorrectPassword(currentUsername, currentPassword, fileIO)) {
                     do {
                         textUI.displayMessage("|--"+ Colors.ANSI_RED +"Incorrect Password" + Colors.ANSI_RESET + "--|");
-                        input = textUI.getInput("Try again(" + Colors.ANSI_CYAN + "T" + Colors.ANSI_RESET + ") or go back("+ Colors.ANSI_CYAN + "B" + Colors.ANSI_RESET +")");
+                        input = textUI.getInput("Try again(" + Colors.ANSI_CYAN + 'T' + Colors.ANSI_RESET + ") or go back("+ Colors.ANSI_CYAN + 'B' + Colors.ANSI_RESET +")");
 
                         //If the user chooses to go back.
                         if (input.trim().equalsIgnoreCase("B")) {

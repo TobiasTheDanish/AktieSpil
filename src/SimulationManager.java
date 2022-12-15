@@ -40,7 +40,6 @@ public class SimulationManager
 
         textUI.displayMessage("\nYour portfolio is now worth: " + application.getCurrentUser().getPortfolio().calculateTotalEquities() + "$");
         textUI.displayMessage("It grew by: " + (application.getCurrentUser().getPortfolio().calculateTotalEquities() - oldPortfolioValue) + "$ over night.");
-        //textUI.displayMessage("And your current balance is: " + application.getCurrentUser().getPortfolio().getBalance() + "$");
         textUI.displayMessage("Goal: " + application.getCurrentUser().getPortfolio().calculateTotalValue() + " / " + GameManager.getWinCondition());
         String input = textUI.getInput("Press" + Colors.ANSI_CYAN + " 'M'" + Colors.ANSI_RESET + " to view more info,\n" +
                                 "press" + Colors.ANSI_CYAN + " 'Q'" + Colors.ANSI_RESET + " to return to the main menu.");

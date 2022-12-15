@@ -37,7 +37,7 @@ public class MainMenu implements IMenu
             }
             default:
                 //If none of the above is reached, prompt the user to let them know.
-                textUI.getInput("That was not a valid action. Press" + Colors.ANSI_CYAN + " ENTER " + Colors.ANSI_RESET + "to try again.");
+                textUI.getInput("That was not a valid action. Press" + Colors.ANSI_CYAN + " 'ENTER' " + Colors.ANSI_RESET + "to try again.");
                 textUI.clearConsole();
                 break;
         }

@@ -44,7 +44,7 @@ public class SearchMenu implements IMenu
         textUI.displayMessage("Risk of bankruptcy: " + Colors.ANSI_RED + selectedEquity.getRiskOfBankruptcy() + "%" + Colors.ANSI_RESET + ".");
         textUI.displayMessage("-------------------------");
         textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
-        String buyInput = textUI.getInput("Press" + Colors.ANSI_CYAN + " B " + Colors.ANSI_RESET + "to buy stock or press"+ Colors.ANSI_CYAN + " ENTER " + Colors.ANSI_RESET +"to go back: ");
+        String buyInput = textUI.getInput("Press" + Colors.ANSI_CYAN + " 'B' " + Colors.ANSI_RESET + "to buy stock or press"+ Colors.ANSI_CYAN + " 'ENTER' " + Colors.ANSI_RESET +"to go back: ");
         int amount = 0;
         if (buyInput.trim().equalsIgnoreCase("B")){
             try
