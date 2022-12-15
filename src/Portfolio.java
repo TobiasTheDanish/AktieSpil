@@ -2,21 +2,18 @@ import java.util.*;
 
 public class Portfolio {
 
-    ArrayList<IEquity> equities;
+    private ArrayList<IEquity> equities;
     Map<String, Integer> equityAmount;
     Map<String, Float> purchasePrices;
-    private float balance;
+    private float balance = 0.0f;
 
-    public Portfolio(ArrayList<IEquity> equities, float balance) {
+    public Portfolio(ArrayList<IEquity> equities) {
         this.equities = equities;
-        this.balance = balance;
         this.equityAmount = new HashMap<>();
         this.purchasePrices = new HashMap<>();
     }
 
     public void addToPortfolio(IEquity equity, int amount) {
-        equities.add(equity);
-
         if (purchasePrices.containsKey(equity.getName())) {
             float newAveragePrice = calcNewAveragePrice(equity.getName(), equity.getPrice(), amount);
             purchasePrices.replace(equity.getName(), newAveragePrice);
@@ -24,15 +21,20 @@ public class Portfolio {
             equityAmount.replace(equity.getName(), calcNewTotalAmount(equity.getName(), amount));
         }
         else {
+            equities.add(equity);
             purchasePrices.put(equity.getName(), equity.getPrice());
             equityAmount.put(equity.getName(), amount);
         }
     }
 
-    public void removeFromPortfolio(IEquity equity, int amount) {
+    public void removeFromPortfolio(IEquity equity, int amount) throws IndexOutOfBoundsException {
         String equityName = equity.getName();
 
-        if (amount >= equityAmount.get(equityName))
+        if (amount > equityAmount.get(equityName))
+        {
+            throw new IndexOutOfBoundsException("The amount given to removeFromPortfolio(), was bigger than the amount in the portfolio");
+        }
+        else if (amount == equityAmount.get(equityName))
         {
             equities.remove(equity);
             equityAmount.remove(equityName);
@@ -44,8 +46,6 @@ public class Portfolio {
             int newAmount = oldAmount-amount;
             equityAmount.replace(equityName, newAmount);
         }
-
-
     }
 
     public float calculateTotalValue(){
@@ -55,9 +55,21 @@ public class Portfolio {
     public float calculateTotalEquities(){
         float sum = 0;
         for (IEquity equity : equities) {
-            sum += (purchasePrices.get(equity.getName()) * equityAmount.get(equity.getName()));
+            sum += equity.getPrice() * equityAmount.get(equity.getName());
         }
         return sum;
+    }
+
+    public float calculateTotalReturn() {
+        float roi = 0.0f;
+        for (IEquity equity : equities) {
+            roi += calculateStockReturn(equity);
+        }
+        return roi;
+    }
+
+    public float calculateStockReturn(IEquity equity){
+        return (equity.getPrice() - getAveragePrice(equity)) * getAmountOfEquity(equity);
     }
 
     public float getBalance() {
@@ -68,9 +80,18 @@ public class Portfolio {
         this.balance = balance;
     }
 
+    public ArrayList<IEquity> getEquities()
+    {
+        return equities;
+    }
+
     public float getAveragePrice(IEquity equity)
     {
         return purchasePrices.get(equity.getName());
+    }
+
+    public int getAmountOfEquity(IEquity equity) {
+        return equityAmount.get(equity.getName());
     }
 
     private float calcNewAveragePrice(String equityName, float newPrice, int newAmount)
@@ -107,4 +128,6 @@ public class Portfolio {
             }
         return total;
     }
+
+
 }

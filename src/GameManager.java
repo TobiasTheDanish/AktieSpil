@@ -1,14 +1,13 @@
 public class GameManager {
+    private final float startBalance;
+    private final float winCondition;
+    private final float loseCondition;
 
-    //TODO: Avoid static if possible
-    private static float winCondition;
-    private float loseCondition;
-
-
-    public void chooseWinLoseCondition(float winCon, float loseCon){
-
-        winCondition = winCon;
-        loseCondition = loseCon;
+    public GameManager(float startBalance, float winCondition, float loseCondition)
+    {
+        this.startBalance = startBalance;
+        this.winCondition = winCondition;
+        this.loseCondition = loseCondition;
     }
 
     public boolean hasPlayerWon(User user){
@@ -19,7 +18,17 @@ public class GameManager {
         return user.getPortfolio().calculateTotalValue() <= loseCondition;
     }
 
-    public static float getWinCondition() {
+    public float getWinCondition() {
         return winCondition;
+    }
+
+    public float getStartBalance()
+    {
+        return startBalance;
+    }
+
+    public float getLossCondition()
+    {
+        return loseCondition;
     }
 }

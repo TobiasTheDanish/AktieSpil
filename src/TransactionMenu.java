@@ -51,24 +51,30 @@ public class TransactionMenu implements IMenu
 
 
 		String input = textUI.getInputOnLine("What would you like to do: ");
-		switch (input) {
-			case "1": {
+		switch (input)
+		{
+			case "1":
+			{
 				textUI.clearConsole();
 				textUI.printListOfEquities(application.getEquities());
 
 				IEquity selectedEquity = null;
 
-				while (selectedEquity == null) {
+				while (selectedEquity == null)
+				{
 					String stockInput = textUI.getInput("Enter number of the stock you would like to buy?");
 
-					try {
+					try
+					{
 						int stockIndex = Integer.parseInt(stockInput);
 						selectedEquity = application.getEquities().get(stockIndex-1);
 					}
-					catch (NumberFormatException e) {
+					catch (NumberFormatException e)
+					{
 						textUI.displayMessage("That was not a number. Try again.");
 					}
-					catch (IndexOutOfBoundsException e) {
+					catch (IndexOutOfBoundsException e)
+					{
 						textUI.displayMessage("That number was too big or too small. Try again.");
 					}
 				}
@@ -78,16 +84,21 @@ public class TransactionMenu implements IMenu
 				do {
 					textUI.displayMessage("You selected " + selectedEquity.getName());
 					textUI.displayMessage("1) Buy stock\n" +
-												  "2) Go back");
+												"2) Go back");
 					buyInput = textUI.getInput("What would you like to do?");
 				} while (!buyInput.trim().equals("1") && !buyInput.trim().equals("2"));
 
-				if (buyInput.trim().equals("1")) {
+				if (buyInput.trim().equals("1"))
+				{
 					textUI.clearConsole();
 
-					while (true) {
+					while (true)
+					{
 						textUI.displayMessage("How many stocks of " + selectedEquity.getName() + " would you like to purchase?");
+						textUI.displayMessage("Press 'Q' to return");
 						String amountInput = textUI.getInputOnLine("Quantity: ");
+
+						if (amountInput.equalsIgnoreCase("Q")) break;
 
 						try {
 							int buyAmount = Integer.parseInt(amountInput);
