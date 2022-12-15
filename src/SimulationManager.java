@@ -155,7 +155,7 @@ public class SimulationManager
                 increaseRangeModifier = 1.00f;
             }
 
-            float increaseRange = random.nextFloat((numInRange * increaseRangeModifier));
+            float increaseRange = random.nextFloat(numInRange * increaseRangeModifier);
 
             float increasePercentage = ((random.nextFloat(increaseRange)) - increaseRange/2) / 100;
             float increase = equity.getPrice() * increasePercentage;

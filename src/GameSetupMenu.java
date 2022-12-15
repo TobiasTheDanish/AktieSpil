@@ -129,12 +129,12 @@ public class GameSetupMenu implements IMenu
                 try {
                     lossCondition = Float.parseFloat(newLossCon);
 
-                    if (winCondition >= startBalance - 5000)
+                    if (lossCondition >= startBalance - 5000)
                     {
                         throw new IndexOutOfBoundsException();
                     }
 
-                    textUI.getInput("Your goal has been " + Colors.ANSI_GREEN + "updated!" + Colors.ANSI_RESET);
+                    textUI.getInput("Your loss condition has been " + Colors.ANSI_GREEN + "updated!" + Colors.ANSI_RESET + "\n Press "+ Colors.ANSI_CYAN + "'ENTER'" + Colors.ANSI_RESET + " to continue.");
                     break;
                 }
                 catch (NumberFormatException e) {
