@@ -84,7 +84,7 @@ public class TransactionMenu implements IMenu
 				do {
 					textUI.displayMessage("You selected " + selectedEquity.getName());
 					textUI.displayMessage("1) Buy stock\n" +
-												  "2) Go back");
+												"2) Go back");
 					buyInput = textUI.getInput("What would you like to do?");
 				} while (!buyInput.trim().equals("1") && !buyInput.trim().equals("2"));
 

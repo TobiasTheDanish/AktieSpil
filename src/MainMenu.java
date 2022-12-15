@@ -14,7 +14,7 @@ public class MainMenu implements IMenu
                                    "3)   View your previous transactions.\n" +
                                    "4)   Simulate to next day.\n");
         textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
-        input = textUI.getInput("Enter your selection, or press" + Colors.ANSI_CYAN + " Q " + Colors.ANSI_RESET + "to log out:");
+        input = textUI.getInput("Enter your selection, or press" + Colors.ANSI_CYAN + " 'Q' " + Colors.ANSI_RESET + "to log out:");
         //Switch statement to perform different logic based on input
         switch (input.trim()) {
             case "q":
@@ -34,7 +34,7 @@ public class MainMenu implements IMenu
             }
             default:
                 //If none of the above is reached, prompt the user to let them know.
-                textUI.getInput("That was not a valid action. Press" + Colors.ANSI_CYAN + " ENTER " + Colors.ANSI_RESET + "to try again.");
+                textUI.getInput("That was not a valid action. Press" + Colors.ANSI_CYAN + " 'ENTER' " + Colors.ANSI_RESET + "to try again.");
                 textUI.clearConsole();
                 break;
         }
@@ -49,5 +49,4 @@ public class MainMenu implements IMenu
     public void exit (Application application) {
         application.menuStack.pop();
     }
-
 }

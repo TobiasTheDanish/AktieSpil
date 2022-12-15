@@ -40,7 +40,6 @@ public class SimulationManager
 
         textUI.displayMessage("\nYour portfolio is now worth: " + application.getCurrentUser().getPortfolio().calculateTotalEquities() + "$");
         textUI.displayMessage("It grew by: " + (application.getCurrentUser().getPortfolio().calculateTotalEquities() - oldPortfolioValue) + "$ over night.");
-        textUI.displayMessage("And your current balance is: " + application.getCurrentUser().getPortfolio().getBalance() + "$");
         textUI.displayMessage("Goal: " + application.getCurrentUser().getPortfolio().calculateTotalValue() + " / " + GameManager.getWinCondition());
         String input = textUI.getInput("Press" + Colors.ANSI_CYAN + " 'M'" + Colors.ANSI_RESET + " to view more info,\n" +
                                 "press" + Colors.ANSI_CYAN + " 'Q'" + Colors.ANSI_RESET + " to return to the main menu.");
@@ -78,7 +77,7 @@ public class SimulationManager
                 String stockReturnPercentageText = stockReturnPercentage > 0 ? Colors.ANSI_GREEN + stockReturnPercentage + Colors.ANSI_RESET : Colors.ANSI_RED + stockReturnPercentage + Colors.ANSI_RESET;
                 textUI.displayMessage("-\t" + equity.getName() + " increased by " + increaseText + "$ / " + increasePercentageText + "%\n" +
                                               "\tYesterday it was worth " + initialValue + "$, today it is worth " + equity.getPrice() +"$\n" +
-                                              "\tReturn on investment: " + stockReturnText + "$ / " + stockReturnPercentageText + "\n");
+                                              "\tReturn on investment: " + stockReturnText + "$ / " + stockReturnPercentageText + "%" + "\n");
             } else {
                 textUI.displayMessage("-\tOH NO! " + equity.getName() + " has gone" + Colors.ANSI_RED + " bankrupt...\n" +Colors.ANSI_RESET +
                                               "\tYou have lost your investment of: " +Colors.ANSI_RED + investment + Colors.ANSI_RESET + "$\n");
