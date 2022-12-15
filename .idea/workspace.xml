@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PortfolioMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioMenu.java" afterDir="false" />
-    </list>
+    <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Removed display previous transaction from main menu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,32 +47,15 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Dev/Projects/IntelliJ/AktieSpil/src/DataStrukturer&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Dev\Projects\IntelliJ\AktieSpil\src\DataStrukturer" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-      <recent name="DataStrukturer" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -117,32 +97,29 @@
       <option name="project" value="LOCAL" />
       <updated>1670836883511</updated>
     </task>
-    <task id="LOCAL-00003" summary="Src folder">
-      <created>1670838210134</created>
+    <task id="LOCAL-00003" summary="Updated to use the stack functionality">
+      <created>1671029696771</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1670838210134</updated>
+      <updated>1671029696771</updated>
     </task>
-    <task id="LOCAL-00004" summary="FileIO ReadEquityData function added">
-      <created>1670854772391</created>
+    <task id="LOCAL-00004" summary="Changes to how the simulation of stock values work. Including displaying info about the users portfolio">
+      <created>1671059697924</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1670854772391</updated>
+      <updated>1671059697924</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Removed display previous transaction from main menu">
+      <created>1671127955717</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671127955717</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -158,8 +135,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Documentation" />
-    <MESSAGE value="Src folder" />
-    <MESSAGE value="FileIO ReadEquityData function added" />
-    <option name="LAST_COMMIT_MESSAGE" value="FileIO ReadEquityData function added" />
+    <MESSAGE value="Updated to use the stack functionality" />
+    <MESSAGE value="Changes to how the simulation of stock values work. Including displaying info about the users portfolio" />
+    <MESSAGE value="Removed display previous transaction from main menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed display previous transaction from main menu" />
   </component>
 </project>
