@@ -15,7 +15,7 @@ public class PortfolioMenu implements IMenu {
 
 
             while (selectedEquity == null) {
-            String stockInput = textUI.getInput("What stock would you like to look at?\nPress 'Q' to go back.");
+                String stockInput = textUI.getInput("What stock would you like to look at?\nPress 'Q' to go back.");
 
                 if (stockInput.equalsIgnoreCase("Q")) {
                     exit(application);
@@ -63,7 +63,6 @@ public class PortfolioMenu implements IMenu {
                     }
                 }
             }
-
         }
     }
 
