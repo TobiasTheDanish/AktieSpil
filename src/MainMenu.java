@@ -28,10 +28,7 @@ public class MainMenu implements IMenu
             } case "2": {
                 application.menuStack.push(new PortfolioMenu());
                 break;
-            } case "3": {
-                application.menuStack.push(new TransactionMenu("displayPrevTransactions"));
-                break;
-            } case "4":  {
+            } case "3":  {
                 application.menuStack.push(new SimulationMenu());
                 break;
             }
@@ -42,7 +39,6 @@ public class MainMenu implements IMenu
                 break;
         }
     }
-
 
     @Override
     public void enter(Application application) {

@@ -36,7 +36,6 @@ public class SearchMenu implements IMenu
             }
         }
 
-
         textUI.clearConsole();
         textUI.displayMessage("Name: " + selectedEquity.getName() + ".");
         textUI.displayMessage("Price: " + selectedEquity.getPrice() + ".");
@@ -65,7 +64,6 @@ public class SearchMenu implements IMenu
                 textUI.displayMessage("That number was too big or too small. Try again.");
             }
         }
-
     }
 
     @Override
