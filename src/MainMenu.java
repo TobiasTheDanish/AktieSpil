@@ -11,8 +11,7 @@ public class MainMenu implements IMenu
         textUI.displayMessage("What action do you wish to make?");
         textUI.displayMessage("1)   View all stocks.\n" +
                                    "2)   View your portfolio.\n" +
-                                   "3)   View your previous transactions.\n" +
-                                   "4)   Simulate to next day.\n");
+                                   "3)   Simulate to next day.\n");
         textUI.displayMessage(Colors.ANSI_YELLOW + "Balance: " + application.getCurrentUser().getPortfolio().getBalance() + Colors.ANSI_RESET);
         input = textUI.getInput("Enter your selection, or press" + Colors.ANSI_CYAN + " 'Q' " + Colors.ANSI_RESET + "to log out:");
         //Switch statement to perform different logic based on input

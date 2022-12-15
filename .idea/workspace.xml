@@ -7,7 +7,7 @@
     <list default="true" id="7acc75d2-df3b-471c-99f2-050d0af5377e" name="Changes" comment="Changes to how the simulation of stock values work. Including displaying info about the users portfolio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PortfolioMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +28,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/TobiasC" />
+    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
